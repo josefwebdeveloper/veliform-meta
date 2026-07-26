@@ -1,0 +1,31 @@
+# Veliform company project registry — source of truth for bootstrap + CEO updates.
+company: veliform
+workspace_root: ~/WORKSPACE/veliform
+
+repos:
+  - slug: meta
+    name: Veliform Meta
+    git: https://github.com/josefwebdeveloper/veliform-meta.git
+    path: meta
+    product_slug: null
+
+  - slug: voice
+    name: Veliform Voice Agent
+    git: https://github.com/josefwebdeveloper/voice-agent.git
+    path: voice
+    product_slug: veliform-voice
+    notion_workstream_slug: voice-agent
+    github: josefwebdeveloper/voice-agent
+    path_prefixes:
+      - apps/voice-server/
+      - apps/personal-server/
+      - apps/business-server/
+      - docs/
+
+# Add more products:
+#  - slug: website
+#    name: veliform.com
+#    git: https://github.com/josefwebdeveloper/veliform-website.git
+#    path: website
+#    product_slug: veliform-website
+#    notion_workstream_slug: veliform-website

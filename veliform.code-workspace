@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "name": "Veliform Meta",
+      "path": "."
+    },
+    {
+      "name": "Veliform Voice",
+      "path": "../voice"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.pytest_cache": true
+    }
+  }
+}
