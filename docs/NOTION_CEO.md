@@ -8,10 +8,11 @@ Veliform **CEO** layer: all company products, stages, and an append-only activit
 
 ```
 Veliform (company page in Notion — optional)
-├── Veliform Voice Agent     [Product]
-│   └── voice-agent          [Workstream]
-├── … other products (parallel)
-└── Ideas                    [Type=Idea]
+├── Veliform Company Site     [Product]  slug: veliform-company  → veliform.com
+│   └── veliform-landing repo [Workstream] slug: veliform-landing
+├── Veliform Voice Agent      [Product]  slug: veliform-voice
+│   └── voice repo            [Workstream] slug: voice-agent
+└── … other products / ideas
 ```
 
 ## 1. Create CEO Projects database
@@ -48,6 +49,8 @@ Veliform (company page in Notion — optional)
 
 | Name | Slug | Type | Stage | Tier | Parent |
 |------|------|------|-------|------|--------|
+| Veliform Company Site | veliform-company | Product | Live | Active | — |
+| veliform-landing repo | veliform-landing | Workstream | Live | Active | Veliform Company Site |
 | Veliform Voice Agent | veliform-voice | Product | Building | Active | — |
 | voice-agent repo | voice-agent | Workstream | Building | Active | Veliform Voice Agent |
 

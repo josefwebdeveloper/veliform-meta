@@ -6,9 +6,10 @@ Company-level registry for **Veliform**: CEO Notion hub config, bootstrap script
 
 ```
 ~/WORKSPACE/veliform/
-├── meta/     ← this repo
-├── voice/    ← Veliform Voice Agent (github.com/josefwebdeveloper/voice-agent)
-└── …         ← more products (see ceo/projects.yaml)
+├── meta/              ← this repo (CEO registry, bootstrap)
+├── veliform-landing/  ← veliform.com company site (Vercel)
+├── voice/             ← Veliform Voice Agent
+└── …
 ```
 
 ## New Mac setup

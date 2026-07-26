@@ -38,6 +38,9 @@ fi
 # voice
 clone_repo "https://github.com/josefwebdeveloper/voice-agent.git" "${TARGET}/voice"
 
+# company landing (veliform.com)
+clone_repo "https://github.com/josefwebdeveloper/veliform-landing.git" "${TARGET}/veliform-landing"
+
 echo ""
 echo "Done. Next steps:"
 echo "  1. Open ${TARGET}/meta/veliform.code-workspace in Cursor"

@@ -5,6 +5,10 @@
       "path": "."
     },
     {
+      "name": "Veliform Landing (company)",
+      "path": "../veliform-landing"
+    },
+    {
       "name": "Veliform Voice",
       "path": "../voice"
     }

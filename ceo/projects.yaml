@@ -9,6 +9,16 @@ repos:
     path: meta
     product_slug: null
 
+  - slug: landing
+    name: Veliform Company Site
+    git: https://github.com/josefwebdeveloper/veliform-landing.git
+    path: veliform-landing
+    product_slug: veliform-company
+    notion_workstream_slug: veliform-landing
+    github: josefwebdeveloper/veliform-landing
+    prod_url: https://veliform.com
+    deploy: vercel
+
   - slug: voice
     name: Veliform Voice Agent
     git: https://github.com/josefwebdeveloper/voice-agent.git
@@ -23,9 +33,5 @@ repos:
       - docs/
 
 # Add more products:
-#  - slug: website
-#    name: veliform.com
-#    git: https://github.com/josefwebdeveloper/veliform-website.git
-#    path: website
-#    product_slug: veliform-website
-#    notion_workstream_slug: veliform-website
+#  - slug: other-product
+#    git: ...
