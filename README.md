@@ -28,6 +28,8 @@ Setup guide: [docs/NOTION_CEO.md](docs/NOTION_CEO.md)
 
 Project registry: [ceo/projects.yaml](ceo/projects.yaml)
 
+Org + agents (HQ dashboard): [ceo/org.yaml](ceo/org.yaml) · [docs/COMPANY_HQ.md](docs/COMPANY_HQ.md)
+
 ## Push this repo
 
 ```bash

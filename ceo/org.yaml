@@ -1,0 +1,146 @@
+# Veliform company org — source of truth for HQ dashboard (veliform.com/hq).
+# Synced to veliform-landing at build via scripts/sync-org.mjs
+
+company:
+  name: Veliform
+  tagline: AI that runs your business
+
+departments:
+  - id: product
+    name: Product
+    color: indigo
+  - id: engineering
+    name: Engineering
+    color: violet
+  - id: marketing
+    name: Marketing & SEO
+    color: emerald
+  - id: ops
+    name: Operations
+    color: amber
+
+people:
+  - id: josef
+    name: Josef Shainskiy
+    role: Founder / CEO
+    department: product
+    status: active
+
+agents:
+  - id: rose
+    name: Rose
+    type: voice
+    department: product
+    product_slug: veliform-voice
+    workstream_slug: voice-agent
+    status: live
+    focus: Florist demo tenant — orders, delivery, handoff
+    tools: [catalog, orders, delivery_slots, handoff]
+    deploy: voice-server
+
+  - id: alice
+    name: Alice
+    type: voice
+    department: ops
+    product_slug: veliform-voice
+    workstream_slug: voice-agent
+    status: live
+    focus: Personal assistant — calendar, Gmail, Notion, CEO registry
+    tools: [calendar, gmail, notion_tasks, get_ceo_status, log_ceo_update]
+    deploy: personal-server
+
+  - id: secretary
+    name: Secretary
+    type: voice
+    department: ops
+    product_slug: veliform-voice
+    workstream_slug: voice-agent
+    status: live
+    focus: Non-owner call screening, messages, availability checks
+    tools: [take_message, check_availability, handoff]
+    deploy: personal-server
+
+  - id: maya
+    name: Maya
+    type: voice
+    department: product
+    product_slug: veliform-voice
+    workstream_slug: voice-agent
+    status: planned
+    focus: Real estate tenant — listings, leads, web search
+    tools: [listings, leads, web_search]
+    deploy: voice-server
+
+  - id: hr-copilot
+    name: HR Copilot
+    type: voice
+    department: product
+    product_slug: veliform-voice
+    workstream_slug: voice-agent
+    status: beta
+    focus: Live-call interview hints via Telegram
+    tools: [copilot_hints, telegram]
+    deploy: personal-server
+
+  - id: seo-agent
+    name: SEO Agent
+    type: automation
+    department: marketing
+    product_slug: veliform-company
+    workstream_slug: veliform-landing
+    status: active
+    focus: veliform.com — sitemap, meta tags, JSON-LD, agent-skills
+    tools: [sitemap, structured_data, llms_txt]
+    repo: veliform-landing
+
+  - id: ai-architect
+    name: AI Architect
+    type: automation
+    department: marketing
+    product_slug: veliform-company
+    workstream_slug: veliform-landing
+    status: live
+    focus: Gemini-powered project consultation for prospects
+    tools: [consult_ai_architect, webmcp]
+    repo: veliform-landing
+
+  - id: ceo-steward
+    name: CEO Steward
+    type: automation
+    department: ops
+    product_slug: null
+    workstream_slug: null
+    status: live
+    focus: Notion CEO logging from Cursor sessions and git pushes
+    tools: [log_ceo_update, notion_ceo]
+    repo: meta
+
+  - id: github-ci
+    name: GitHub CI
+    type: automation
+    department: engineering
+    product_slug: null
+    workstream_slug: null
+    status: live
+    focus: Push to main → CEO Updates row + Last touch patch
+    tools: [ceo_notion_update]
+    repo: voice-agent
+
+plans:
+  - id: voice-phase-d
+    title: Voice Phase D — second business tenant
+    product_slug: veliform-voice
+    status: building
+    note: Real estate tenant (Maya), admin UI for tenant #2
+
+  - id: copilot-server
+    title: Dedicated Copilot deploy
+    product_slug: veliform-voice
+    status: planned
+    note: Separate Railway service for Voice Copilot product line
+
+  - id: hq-v1
+    title: Company HQ dashboard
+    product_slug: veliform-company
+    status: live
+    note: veliform.com/hq — live org + Notion CEO feed
