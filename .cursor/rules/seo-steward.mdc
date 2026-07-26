@@ -1,0 +1,37 @@
+---
+description: SEO and veliform.com marketing changes — update ClickUp SEO list, Notion CEO, and standard SEO artifacts.
+globs:
+  - veliform-landing/**
+  - meta/docs/**
+alwaysApply: false
+---
+
+# SEO Steward (Veliform Company Site)
+
+Agent: **SEO Agent** (`ceo/org.yaml`). Repo: `veliform-landing`. Workstream slug: `veliform-landing`.
+
+## When this rule applies
+
+Editing or adding: `index.html` meta/OG, `public/sitemap.xml`, `public/robots.txt`, `.well-known/agent-skills`, structured data, landing copy for indexation, `scripts/generate-sitemap.mjs`.
+
+## Required outputs (code)
+
+- Keep canonical `https://veliform.com`
+- Regenerate sitemap when routes/sections change (`npm run prebuild`)
+- `robots.txt`: keep `Disallow: /hq`, allow public pages
+- JSON-LD / OG consistent with page content
+
+## Required sync (after non-trivial SEO work)
+
+1. **ClickUp** (MCP, list `🌐 SEO & Marketing`):
+   - Create or close task with clear title, e.g. «SEO: update sitemap after /hq route»
+   - Status: Done if shipped, Open if follow-up needed
+2. **Notion CEO Update** (workstream `veliform-landing`, source `cursor`):
+   - Title + summary + commit link
+3. **Push** `veliform-landing` → triggers CEO GitHub Action (source `git`)
+
+## Checklist before finishing
+
+- [ ] Sitemap includes public URLs only (not `/hq`)
+- [ ] ClickUp task updated
+- [ ] User offered CEO Update line if Notion MCP unavailable

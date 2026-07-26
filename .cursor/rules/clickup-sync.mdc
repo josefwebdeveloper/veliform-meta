@@ -1,0 +1,31 @@
+---
+description: After completing work, sync actionable tasks in ClickUp via MCP when connected.
+alwaysApply: true
+---
+
+# ClickUp sync (Veliform)
+
+ClickUp = **tasks** (open/done/priority). Notion CEO = **activity log** (see `ceo-registry.mdc`). Both when work is non-trivial.
+
+## MCP
+
+- Server: `https://mcp.clickup.com/mcp` (`meta/.cursor/mcp.json`, `voice/.cursor/mcp.json`)
+- OAuth only. If tools unavailable → tell user: **Settings → Tools & MCP → ClickUp → Connect**
+
+## After finishing work
+
+1. **Identify list** from repo:
+   - `veliform-landing` / SEO / marketing → `🌐 SEO & Marketing` ([CLICKUP_VELIFORM.md](../docs/CLICKUP_VELIFORM.md))
+   - `veliform-landing` / HQ → `🏗 Company HQ`
+   - `voice` → lists in [voice/docs/CLICKUP_PROJECT.md](../../voice/docs/CLICKUP_PROJECT.md)
+2. **Update or create task:**
+   - Done work → mark **Done** (or move to `✅ Done` for voice)
+   - New follow-up → **Open** in Backlog / In Progress with priority
+3. **Task description:** 1–3 lines + link to commit/PR. No secrets, no full env dumps.
+4. **Also:** CEO Update in Notion when product direction or deploy changed (ceo-registry rule).
+
+## Do not
+
+- Duplicate entire `PROJECT_LOG.md` into ClickUp
+- Create duplicate Spaces/Folders — check hierarchy first
+- Skip ClickUp when user explicitly tracks work there
