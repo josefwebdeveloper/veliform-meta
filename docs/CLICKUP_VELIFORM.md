@@ -2,15 +2,18 @@
 
 > Workspace: Joseph Shain (`90182909934`). Voice lists — [`voice/docs/CLICKUP_PROJECT.md`](../../voice/docs/CLICKUP_PROJECT.md).
 
-## Предлагаемая структура (создать через MCP после OAuth)
+## Структура (live)
 
-| Уровень | Название | Назначение |
-|---------|----------|------------|
-| Space | `Veliform` *(или Folder в Team Space)* | Вся компания |
-| Folder | `Company Site` | veliform.com, meta, HQ |
-| List | `🌐 SEO & Marketing` | sitemap, meta, JSON-LD, agent-skills, content |
-| List | `🏗 Company HQ` | /hq dashboard, org.yaml, Notion integration |
-| List | `📋 Backlog` | идеи по сайту |
+| Уровень | Название | ID / URL |
+|---------|----------|----------|
+| Workspace | Joseph Shain | `90182909934` |
+| Space | `VeliForm` | `901812090844` |
+| Folder | `Company Site` | [folder](https://app.clickup.com/90182909934/v/f/901815639926) · `901815639926` |
+| List | `🌐 SEO & Marketing` | [list](https://app.clickup.com/90182909934/v/l/li/901819936121) · `901819936121` |
+| List | `🏗 Company HQ` | [list](https://app.clickup.com/90182909934/v/l/li/901819936119) · `901819936119` |
+| List | `📋 Backlog` | [list](https://app.clickup.com/90182909934/v/l/li/901819936120) · `901819936120` |
+
+Voice lists — [`voice/docs/CLICKUP_PROJECT.md`](../../voice/docs/CLICKUP_PROJECT.md) (folder `Voice Agents` · `901815577245`).
 
 ## Custom fields (Folder level)
 

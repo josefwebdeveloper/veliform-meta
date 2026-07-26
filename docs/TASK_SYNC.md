@@ -41,4 +41,4 @@ veliform.com/hq  → live-дашборд (org + Notion)
 
 1. **ClickUp:** Cursor → Settings → Tools & MCP → ClickUp → **Connect** (OAuth)
 2. Конфиг: `meta/.cursor/mcp.json`, `voice/.cursor/mcp.json`
-3. После Connect: «ClickUp подключён» → агент создаст/обновит lists
+3. После Connect: «ClickUp подключён» → lists в [CLICKUP_VELIFORM.md](CLICKUP_VELIFORM.md) (Company Site folder live)
