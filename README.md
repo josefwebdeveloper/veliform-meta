@@ -32,6 +32,8 @@ Org + agents (HQ dashboard): [ceo/org.yaml](ceo/org.yaml) · [docs/COMPANY_HQ.md
 
 Task sync (ClickUp + Notion + HQ): [docs/TASK_SYNC.md](docs/TASK_SYNC.md) · ClickUp company lists: [docs/CLICKUP_VELIFORM.md](docs/CLICKUP_VELIFORM.md)
 
+Autonomous traffic + content-opportunity reporting: [docs/MARKETING_AGENT.md](docs/MARKETING_AGENT.md)
+
 ## Push this repo
 
 ```bash

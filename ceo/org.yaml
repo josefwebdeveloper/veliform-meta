@@ -93,6 +93,17 @@ agents:
     tools: [sitemap, structured_data, llms_txt]
     repo: veliform-landing
 
+  - id: marketing-analyst
+    name: Marketing Analyst
+    type: automation
+    department: marketing
+    product_slug: veliform-company
+    workstream_slug: veliform-landing
+    status: beta
+    focus: GA4 + Search Console monitoring, anomaly alerts, weekly topics
+    tools: [ga4, search_console, gemini, clickup, notion_ceo]
+    repo: veliform-landing
+
   - id: ai-architect
     name: AI Architect
     type: automation

@@ -33,6 +33,13 @@ Voice lists — [`voice/docs/CLICKUP_PROJECT.md`](../../voice/docs/CLICKUP_PROJE
 - Core Web Vitals / Lighthouse follow-up
 - New industry page or blog (when added)
 
+## Marketing Analyst
+
+Scheduled GitHub Actions writes to `🌐 SEO & Marketing` through the ClickUp REST
+API. It creates at most one daily anomaly task or three weekly opportunity tasks,
+with a deterministic fingerprint to prevent duplicates. Interactive Cursor work
+continues to use ClickUp MCP.
+
 ## HQ Agent — типичные задачи
 
 List `🏗 Company HQ`:
