@@ -1,6 +1,6 @@
-# Agent Company SaaS — product idea & backlog
+# WeOffice — Agent Company SaaS
 
-> **Status:** Building — MVP v0 in `agent-company/` (Crewdesk UI demo)  
+> **Status:** Building — MVP in `agent-company/` (WeOffice UI)  
 > **Slug:** `agent-company-saas` · **Workstream:** `agent-company`  
 > **CEO Notion:** Type = Idea, Tier = Idea, Stage = Discovery, Priority = P2  
 > **Separate from:** Veliform Voice (`veliform-voice`), internal HQ (`veliform-company`)
@@ -120,7 +120,7 @@ Priority order is indicative — re-rank at Planning.
 ### P2 — Build (post-approval)
 
 - [ ] **B1** Repo bootstrap + CI + staging env — **v0 UI done locally**
-- [ ] **B2** Tenant model + auth (Clerk/Supabase/Netlify Identity — TBD)
+- [x] **B2** Tenant model + auth (Clerk + Neon Postgres on Vercel)
 - [ ] **B3** Catalog + hire API
 - [ ] **B4** Agent worker v1 (port SEO + Marketing Analyst logic)
 - [ ] **B5** Dashboard (fork patterns from HQ UI, new brand)
@@ -157,4 +157,4 @@ Priority order is indicative — re-rank at Planning.
 
 ---
 
-*Captured Jul 2026. MVP v0 started in `agent-company/` (Crewdesk).*
+*Captured Jul 2026. Product name: **WeOffice**. MVP in `agent-company/`.*

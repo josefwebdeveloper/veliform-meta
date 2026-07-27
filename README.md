@@ -8,7 +8,7 @@ Company-level registry for **Veliform**: CEO Notion hub config, bootstrap script
 ~/WORKSPACE/veliform/
 ├── meta/              ← this repo (CEO registry, bootstrap)
 ├── veliform-landing/  ← veliform.com company site (Vercel)
-├── agent-company/     ← Crewdesk — Agent Company SaaS (MVP v0)
+├── agent-company/     ← WeOffice — Agent Company SaaS (MVP)
 ├── voice/             ← Veliform Voice Agent
 └── …
 ```

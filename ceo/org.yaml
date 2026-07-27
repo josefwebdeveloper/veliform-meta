@@ -157,7 +157,7 @@ plans:
     note: veliform.com/hq — live org + Notion CEO feed
 
   - id: agent-company-saas-discovery
-    title: Agent Company SaaS — Crewdesk
+    title: Agent Company SaaS — WeOffice
     product_slug: agent-company-saas
     status: building
     note: MVP v0 in agent-company/ — landing, hire roster, local demo dashboard

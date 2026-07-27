@@ -33,7 +33,7 @@ repos:
       - docs/
 
   - slug: agent-company
-    name: Crewdesk (Agent Company SaaS)
+    name: WeOffice (Agent Company SaaS)
     git: https://github.com/josefwebdeveloper/agent-company.git
     path: agent-company
     product_slug: agent-company-saas
@@ -41,7 +41,7 @@ repos:
     github: josefwebdeveloper/agent-company
     prod_url: null
     deploy: vercel
-    notes: MVP v1 — Supabase auth + Postgres + Vercel cron
+    notes: MVP v2 — Clerk auth + Neon Postgres + Vercel API + cron
 
 # Future products (no repo yet): see ceo/ideas.yaml + docs/ideas/
 

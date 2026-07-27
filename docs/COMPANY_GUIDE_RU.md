@@ -80,7 +80,7 @@
 
 ---
 
-### 3.3 Crewdesk (Agent Company SaaS) — будущий B2B продукт
+### 3.3 WeOffice (Agent Company SaaS) — будущий B2B продукт
 
 **Суть:** SaaS, где **клиент открывает свою AI-компанию** — нанимает automation-агентов из каталога, смотрит dashboard. Без голоса, без нашего внутреннего HQ.
 
@@ -96,7 +96,7 @@
 
 | Отдел | Зона |
 |-------|------|
-| **Product** | Voice-агенты, демо-tenant'ы, Launchpad, Crewdesk |
+| **Product** | Voice-агенты, демо-tenant'ы, Launchpad, WeOffice |
 | **Engineering** | Код, CI, деплой, инфра |
 | **Marketing & SEO** | Сайт, трафик, контент, консультации на главной |
 | **Operations** | CEO-реестр, HQ, личные ассистенты, процессы |
@@ -207,7 +207,7 @@
 | `voice-phase-d` | Voice Phase D — второй business tenant | building | Maya / real estate + admin UI для tenant #2 |
 | `copilot-server` | Dedicated Copilot deploy | planned | Отдельный Railway для Voice Copilot |
 | `hq-v1` | Company HQ dashboard | live | veliform.com/hq |
-| `agent-company-saas-discovery` | Crewdesk | building | MVP v0, будущий SaaS |
+| `agent-company-saas-discovery` | WeOffice | building | MVP v0, будущий SaaS |
 
 ---
 
@@ -218,7 +218,7 @@
 ├── meta/              CEO-реестр, org.yaml, документация, bootstrap
 ├── veliform-landing/  veliform.com + HQ + SEO + Marketing Analyst
 ├── voice/             Voice Agent (monorepo: business/personal servers)
-└── agent-company/     Crewdesk MVP (локально, не в GitHub)
+└── agent-company/     WeOffice MVP (локально, не в GitHub)
 ```
 
 | Repo | GitHub | Prod |
@@ -237,7 +237,7 @@
 |--------------|----------|
 | **Company Site → 🌐 SEO & Marketing** | SEO Agent, Marketing Analyst outputs, контент, CWV |
 | **Company Site → 🏗 Company HQ** | HQ, Notion sync, новые агенты в org.yaml |
-| **Company Site → 📋 Backlog** | Идеи без репо (Crewdesk epic) |
+| **Company Site → 📋 Backlog** | Идеи без репо (WeOffice epic) |
 | **Voice Agents** *(отдельная папка)* | Voice runtime, Launchpad, tenant'ы, Railway |
 
 Marketing Analyst **сам** создаёт задачи в SEO & Marketing. Человек закрывает их после выполнения.
@@ -312,7 +312,7 @@ HQ **не** заменяет ClickUp для задач. HQ — «как выгл
 | AI отвечает на звонки 24/7 | Business Platform, tenant на ваш номер, vertical tools |
 | Агент знает ваш бизнес | Launchpad: анализ сайта → prompt + tools → тестовый звонок |
 | Эскалация на человека | Handoff на ваш mobile; Secretary-паттерн для личных линий |
-| Вас находят в Google | SEO Agent + Marketing Analyst на вашем сайте (или аналог as a service в Crewdesk) |
+| Вас находят в Google | SEO Agent + Marketing Analyst на вашем сайте (или аналог as a service в WeOffice) |
 | Понятный план до старта | AI Architect на veliform.com или консультация с командой |
 
 **Пилот сейчас:** invite-only concierge — мы помогаем пройти онбординг вручную, пока Launchpad и billing не в public beta.
@@ -328,7 +328,7 @@ HQ **не** заменяет ClickUp для задач. HQ — «как выгл
 | **Product slug** | ID продукта (`veliform-voice`, `veliform-company`) |
 | **Handoff** | Перевод звонка на живого человека |
 | **CEO Update** | Строка в Notion — «что произошло» |
-| **Dogfooding** | Используем свои же агенты/HQ как прототип будущего SaaS (Crewdesk) |
+| **Dogfooding** | Используем свои же агенты/HQ как прототип будущего SaaS (WeOffice) |
 
 ---
 
