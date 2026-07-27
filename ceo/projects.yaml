@@ -34,14 +34,14 @@ repos:
 
   - slug: agent-company
     name: Crewdesk (Agent Company SaaS)
-    git: null
+    git: https://github.com/josefwebdeveloper/agent-company.git
     path: agent-company
     product_slug: agent-company-saas
     notion_workstream_slug: agent-company
-    github: null
+    github: josefwebdeveloper/agent-company
     prod_url: null
-    deploy: null
-    notes: MVP v0 local demo — repo not pushed yet
+    deploy: vercel
+    notes: MVP v1 — Supabase auth + Postgres + Vercel cron
 
 # Future products (no repo yet): see ceo/ideas.yaml + docs/ideas/
 

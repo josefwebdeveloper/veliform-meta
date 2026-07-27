@@ -8,7 +8,7 @@ ideas:
     stage: building
     tier: idea
     priority: P2
-    next_action: Wire auth + Postgres (v1); port Marketing Analyst worker
+    next_action: Apply Supabase migration + deploy Vercel; then port Marketing Analyst worker (v2)
     docs: docs/ideas/AGENT_COMPANY_SAAS.md
     repo_path: ../agent-company
     clickup_list: backlog
