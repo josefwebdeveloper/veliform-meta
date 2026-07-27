@@ -15,6 +15,24 @@ spend. It runs in `josefwebdeveloper/veliform-landing` through GitHub Actions.
 Tasks go to ClickUp list `SEO & Marketing` (`901819936121`). Notion uses workstream
 slug `veliform-landing`. The HQ activity feed receives the Notion update automatically.
 
+After each **daily** or **weekly** run (when not `dry_run`), a compact digest is sent to
+Telegram (`TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` GitHub secrets — same bot as Voice).
+
+From the owner Telegram bot (personal-server):
+
+- `/marketing status` — last Notion marketing report
+- `/marketing run` — trigger daily check now
+- `/marketing run weekly` — trigger full weekly report
+
+Requires `MARKETING_GITHUB_TOKEN` on **personal-server** Railway (PAT with `workflow` scope).
+
+## Schedule
+
+When `MARKETING_SCHEDULE_ENABLED=true` (repo variable):
+
+- **Daily** anomaly check: **twice daily** at 05:00 and 17:00 UTC (~08:00 and ~20:00 Israel summer)
+- **Weekly** full report: Monday 06:00 UTC (~09:00 Israel summer)
+
 ## Safety model
 
 - Google access is read-only.
