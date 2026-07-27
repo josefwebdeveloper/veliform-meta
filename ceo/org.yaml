@@ -18,6 +18,9 @@ departments:
   - id: ops
     name: Operations
     color: amber
+  - id: finance
+    name: Finance
+    color: rose
 
 people:
   - id: josef
@@ -102,6 +105,17 @@ agents:
     status: beta
     focus: GA4 + Search Console monitoring, anomaly alerts, weekly topics
     tools: [ga4, search_console, gemini, clickup, notion_ceo]
+    repo: veliform-landing
+
+  - id: finance-analyst
+    name: Finance Analyst
+    type: automation
+    department: finance
+    product_slug: veliform-company
+    workstream_slug: veliform-landing
+    status: beta
+    focus: Railway spend pulse every 2h, weekly finance snapshot, anomaly alerts
+    tools: [railway_usage, clickup, notion_ceo, telegram]
     repo: veliform-landing
 
   - id: ai-architect
