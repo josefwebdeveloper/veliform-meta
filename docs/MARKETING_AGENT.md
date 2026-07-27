@@ -28,7 +28,7 @@ slug `veliform-landing`. The HQ activity feed receives the Notion update automat
 
 ## One-time Google setup
 
-The site already loads GA4 measurement tag `G-VYWVW8J66V`. This is not the numeric
+The site loads GA4 measurement tag `G-KW31ZW9NMY`. This is not the numeric
 GA4 property ID required by the Data API.
 
 1. In Google Cloud, create or select a project.

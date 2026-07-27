@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veliform — AI-компания: презентация</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050505;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.1);
+      --indigo: #6366f1;
+      --violet: #a855f7;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --cyan: #06b6d4;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --slide-w: 1280px;
+      --slide-h: 720px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0a0a0a;
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* ── Deck shell ── */
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      width: min(96vw, var(--slide-w));
+      height: min(90vh, var(--slide-h));
+      padding: 48px 56px;
+      border-radius: 24px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      flex-direction: column;
+      box-shadow: 0 0 80px rgba(99,102,241,0.12);
+    }
+
+    .slide.active { display: flex; animation: fadeIn 0.45s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ambient blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      opacity: 0.35;
+    }
+    .blob-1 { width: 420px; height: 420px; background: var(--indigo); top: -120px; right: -80px; }
+    .blob-2 { width: 320px; height: 320px; background: var(--violet); bottom: -100px; left: -60px; }
+    .blob-3 { width: 260px; height: 260px; background: var(--emerald); bottom: 40px; right: 120px; opacity: 0.2; }
+
+    .content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Syne', sans-serif; font-weight: 700; line-height: 1.1; }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.5rem; }
+    h3 { font-size: 1.15rem; }
+    p, li { font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
+    .lead { font-size: 1.15rem; color: #d4d4d8; max-width: 820px; }
+    .tagline { color: var(--indigo); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; margin-bottom: 12px; }
+    .gradient-text {
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Layout helpers ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex: 1; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .mt-auto { margin-top: auto; }
+    .mb-6 { margin-bottom: 24px; }
+    .mb-4 { margin-bottom: 16px; }
+    .gap-sm { gap: 12px; }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(99,102,241,0.35); }
+    .card h3 { color: #fff; margin-bottom: 8px; }
+    .card p { font-size: 0.85rem; }
+
+    .card-indigo { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .card-emerald { border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08); }
+    .card-violet { border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.08); }
+    .card-amber { border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.08); }
+    .card-cyan { border-color: rgba(6,182,212,0.3); background: rgba(6,182,212,0.08); }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .badge-live { background: rgba(16,185,129,0.2); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.4); }
+    .badge-beta { background: rgba(245,158,11,0.2); color: #fcd34d; border: 1px solid rgba(245,158,11,0.4); }
+    .badge-planned { background: rgba(161,161,170,0.15); color: #d4d4d8; border: 1px solid rgba(161,161,170,0.3); }
+    .badge-active { background: rgba(99,102,241,0.2); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.4); }
+
+    /* ── Agent cards ── */
+    .agent-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 140px;
+    }
+    .agent-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+    .icon-voice { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); }
+    .icon-auto { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); }
+    .tools { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
+    .tool-pill {
+      font-size: 0.6rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.06);
+      color: #71717a;
+      font-family: monospace;
+    }
+
+    /* ── Flow diagram ── */
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+    .flow-box {
+      padding: 16px 24px;
+      border-radius: 14px;
+      text-align: center;
+      min-width: 140px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .flow-arrow { color: var(--muted); font-size: 1.5rem; }
+
+    /* ── Three layers ── */
+    .layer-stack { display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: center; }
+    .layer {
+      display: grid;
+      grid-template-columns: 120px 1fr 200px;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 24px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+    .layer-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      opacity: 0.25;
+    }
+    .layer h3 { color: #fff; margin-bottom: 4px; }
+    .layer-url { font-size: 0.8rem; color: var(--indigo); font-family: monospace; text-align: right; }
+
+    /* ── Org chart ── */
+    .org-root {
+      text-align: center;
+      padding: 16px 32px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.15));
+      border: 1px solid rgba(99,102,241,0.35);
+      margin-bottom: 20px;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .dept-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .dept {
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+    .dept-indigo { background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25); }
+    .dept-violet { background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.25); }
+    .dept-emerald { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); }
+    .dept-amber { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); }
+    .dept-name { font-weight: 700; font-size: 0.85rem; margin-bottom: 8px; }
+    .dept-agents { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Timeline ── */
+    .timeline { display: flex; gap: 16px; align-items: stretch; flex: 1; }
+    .timeline-item {
+      flex: 1;
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .timeline-item .time { font-size: 0.7rem; color: var(--indigo); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* ── Footer / nav ── */
+    .slide-footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.75rem;
+      color: #52525b;
+    }
+    .slide-num { font-family: monospace; }
+
+    .nav-hint {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      border: 1px solid var(--border);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .nav-hint kbd {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #fff;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--indigo), var(--violet));
+      transition: width 0.3s;
+      z-index: 100;
+    }
+
+    /* ── Title slide special ── */
+    .title-slide { justify-content: center; text-align: center; }
+    .title-slide .content { align-items: center; justify-content: center; }
+    .logo-ring {
+      width: 88px; height: 88px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--indigo), var(--violet));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      box-shadow: 0 0 40px rgba(99,102,241,0.4);
+    }
+    .meta-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .meta-chip {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── Print / PDF ── */
+    @media print {
+      body { overflow: visible; background: #050505; }
+      .deck { display: block; height: auto; }
+      .slide {
+        display: flex !important;
+        page-break-after: always;
+        break-after: page;
+        width: 100%;
+        height: 100vh;
+        max-height: none;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .nav-hint, .progress { display: none !important; }
+    }
+
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Title -->
+  <section class="slide active title-slide">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="content">
+      <div class="logo-ring">V</div>
+      <p class="tagline">Veliform · 2026</p>
+      <h1 class="gradient-text">AI, который работает<br/>за ваш бизнес</h1>
+      <p class="lead mt-auto" style="margin-top:20px">Полная карта компании: продукты, агенты, системы и то, что происходит каждый день</p>
+      <div class="meta-row">
+        <span class="meta-chip">🎙 5 voice-агентов</span>
+        <span class="meta-chip">⚙️ 5 automation-агентов</span>
+        <span class="meta-chip">📊 veliform.com/hq</span>
+        <span class="meta-chip">🌐 veliform.com</span>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Для команды, клиентов и партнёров</span>
+      <span class="slide-num">01 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: What is Veliform -->
+  <section class="slide">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-3"></div>
+    <div class="content">
+      <p class="tagline">Главная идея</p>
+      <h2 class="gradient-text mb-6">Мы не продаём «ещё один чат-бот»</h2>
+      <div class="grid-2">
+        <div class="card card-indigo">
+          <h3>🏢 AI-компания</h3>
+          <p>У каждого агента — имя, роль, инструменты и зона ответственности. Как сотрудники, только AI.</p>
+        </div>
+        <div class="card card-emerald">
+          <h3>📞 Результат для клиента</h3>
+          <p>Звонок принят 24/7, заказ оформлен, лид записан, SEO работает, трафик мониторится.</p>
+        </div>
+        <div class="card card-violet">
+          <h3>🔭 Внутренний контроль</h3>
+          <p>Дашборд HQ показывает org chart, roster агентов и live-ленту активности компании.</p>
+        </div>
+        <div class="card card-amber">
+          <h3>🚀 Главный продукт</h3>
+          <p><strong style="color:#fff">Veliform Voice</strong> — голосовой AI для бизнеса. Сайт + HQ — инфраструктура и лидоген.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>veliform.com · AI that runs your business</span>
+      <span class="slide-num">02 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: Three layers -->
+  <section class="slide">
+    <div class="blob blob-2"></div>
+    <div class="content">
+      <p class="tagline">Операционная модель</p>
+      <h2 class="gradient-text mb-4">Три слоя — три разных вопроса</h2>
+      <div class="layer-stack">
+        <div class="layer card-indigo">
+          <div class="layer-num">01</div>
+          <div>
+            <h3>ClickUp — «Что делать?»</h3>
+            <p>Задачи, статусы, приоритеты. SEO-правки, Voice-фичи, HQ-баги.</p>
+          </div>
+          <div class="layer-url">app.clickup.com</div>
+        </div>
+        <div class="layer card-violet">
+          <div class="layer-num">02</div>
+          <div>
+            <h3>Notion CEO — «Что произошло?»</h3>
+            <p>Реестр продуктов, стадии, история изменений. CEO Projects + CEO Updates.</p>
+          </div>
+          <div class="layer-url">Notion workspace</div>
+        </div>
+        <div class="layer card-emerald">
+          <div class="layer-num">03</div>
+          <div>
+            <h3>HQ Dashboard — «Как выглядит компания?»</h3>
+            <p>Live org map, agent roster, product board, activity stream. Обновление ~30 сек.</p>
+          </div>
+          <div class="layer-url">veliform.com/hq</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Не дублируем — каждый слой отвечает на свой вопрос</span>
+      <span class="slide-num">03 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: Products -->
+  <section class="slide">
+    <div class="blob blob-1"></div>
+    <div class="content">
+      <p class="tagline">Продуктовая линейка</p>
+      <h2 class="gradient-text mb-6">Три направления</h2>
+      <div class="grid-3">
+        <div class="card card-emerald" style="padding:28px">
+          <span class="badge badge-live">Live · Building</span>
+          <h3 style="font-size:1.3rem">🎙 Veliform Voice</h3>
+          <p class="mb-4">Голосовой AI для бизнеса и личного использования. Главный коммерческий продукт.</p>
+          <ul style="list-style:none; font-size:0.82rem; color:#a1a1aa; line-height:1.8">
+            <li>✦ Business: Rose, Maya</li>
+            <li>✦ Personal: Alice + Secretary</li>
+            <li>✦ Launchpad — онбординг клиентов</li>
+            <li>✦ Railway · app.veliform.com</li>
+          </ul>
+        </div>
+        <div class="card card-indigo" style="padding:28px">
+          <span class="badge badge-live">Live</span>
+          <h3 style="font-size:1.3rem">🌐 Company Site + HQ</h3>
+          <p class="mb-4">Публичное лицо + внутренний control plane.</p>
+          <ul style="list-style:none; font-size:0.82rem; color:#a1a1aa; line-height:1.8">
+            <li>✦ veliform.com — маркетинг</li>
+            <li>✦ AI Architect — консультация</li>
+            <li>✦ SEO + Marketing Analyst</li>
+            <li>✦ Vercel · veliform.com/hq</li>
+          </ul>
+        </div>
+        <div class="card card-violet" style="padding:28px">
+          <span class="badge badge-beta">Building · Idea</span>
+          <h3 style="font-size:1.3rem">🏗 Crewdesk SaaS</h3>
+          <p class="mb-4">B2B: клиент открывает свою AI-компанию и нанимает automation-агентов.</p>
+          <ul style="list-style:none; font-size:0.82rem; color:#a1a1aa; line-height:1.8">
+            <li>✦ MVP v0 локально</li>
+            <li>✦ Dogfooding через наш HQ</li>
+            <li>✦ Без голоса — только automation</li>
+            <li>✦ Отдельный бренд (TBD)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Voice = revenue · Site = лидоген · Crewdesk = масштаб</span>
+      <span class="slide-num">04 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: Voice architecture -->
+  <section class="slide">
+    <div class="blob blob-3"></div>
+    <div class="content">
+      <p class="tagline">Veliform Voice</p>
+      <h2 class="gradient-text mb-4">Как работает звонок</h2>
+      <div class="flow">
+        <div class="flow-box card-emerald">📱 Клиент звонит</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box card-indigo">Twilio</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box card-violet">Railway server</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box card-cyan">OpenAI Realtime</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box card-emerald">🤖 AI-агент</div>
+      </div>
+      <div class="grid-3 mt-auto">
+        <div class="card">
+          <h3>Business Platform</h3>
+          <p><code style="color:var(--emerald)">business-server</code><br/>Rose, Maya — клиенты бизнеса звонят AI. Multi-tenant: номер → tenant → persona.</p>
+        </div>
+        <div class="card">
+          <h3>Personal</h3>
+          <p><code style="color:var(--indigo)">personal-server</code><br/>Owner → Alice. Чужие → Secretary. Календарь, Notion, CEO status.</p>
+        </div>
+        <div class="card">
+          <h3>Voice Copilot</h3>
+          <p><code style="color:var(--amber)">copilot-server</code> (planned)<br/>Человек говорит, AI шлёт подсказки в Telegram. HR Copilot — beta.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Три продукта не пересекаются — отдельные deploy и данные</span>
+      <span class="slide-num">05 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: Voice agents 1 -->
+  <section class="slide">
+    <div class="blob blob-1"></div>
+    <div class="content">
+      <p class="tagline">Голосовые агенты · часть 1</p>
+      <h2 class="gradient-text mb-4">Кто отвечает на телефон</h2>
+      <div class="grid-3">
+        <div class="card agent-card card-emerald">
+          <div class="agent-icon icon-voice">🌹</div>
+          <span class="badge badge-live">Live</span>
+          <h3>Rose</h3>
+          <p>Demo-флорист Bloom & Petal. Каталог, заказы, доставка, handoff на человека.</p>
+          <div class="tools">
+            <span class="tool-pill">catalog</span>
+            <span class="tool-pill">orders</span>
+            <span class="tool-pill">delivery</span>
+            <span class="tool-pill">handoff</span>
+          </div>
+        </div>
+        <div class="card agent-card card-indigo">
+          <div class="agent-icon icon-voice">✨</div>
+          <span class="badge badge-live">Live</span>
+          <h3>Alice</h3>
+          <p>Личный ассистент owner. Календарь, Gmail, Notion, «что по компании?»</p>
+          <div class="tools">
+            <span class="tool-pill">calendar</span>
+            <span class="tool-pill">gmail</span>
+            <span class="tool-pill">notion</span>
+            <span class="tool-pill">ceo_status</span>
+          </div>
+        </div>
+        <div class="card agent-card card-violet">
+          <div class="agent-icon icon-voice">📋</div>
+          <span class="badge badge-live">Live</span>
+          <h3>Secretary</h3>
+          <p>Фильтр звонков для не-owner. Сообщения, availability, handoff.</p>
+          <div class="tools">
+            <span class="tool-pill">take_message</span>
+            <span class="tool-pill">availability</span>
+            <span class="tool-pill">handoff</span>
+          </div>
+        </div>
+      </div>
+      <p class="mt-auto" style="font-size:0.85rem; color:#71717a; margin-top:16px">Rose = живое демо для клиентов · Alice + Secretary = один personal-номер, два режима</p>
+    </div>
+    <div class="slide-footer">
+      <span>Product · Operations</span>
+      <span class="slide-num">06 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: Voice agents 2 -->
+  <section class="slide">
+    <div class="blob blob-2"></div>
+    <div class="content">
+      <p class="tagline">Голосовые агенты · часть 2</p>
+      <h2 class="gradient-text mb-4">Roadmap Voice</h2>
+      <div class="grid-2" style="flex:1">
+        <div class="card card-cyan" style="padding:32px">
+          <span class="badge badge-planned">Planned · Phase D</span>
+          <div class="agent-icon icon-voice" style="width:56px;height:56px;font-size:1.8rem;margin:12px 0">🏠</div>
+          <h3 style="font-size:1.4rem">Maya</h3>
+          <p style="font-size:0.95rem; margin:12px 0 20px">AI-агент для недвижимости — второй business-tenant на том же сервере.</p>
+          <div class="tools" style="margin-top:0">
+            <span class="tool-pill">listings</span>
+            <span class="tool-pill">leads</span>
+            <span class="tool-pill">web_search</span>
+            <span class="tool-pill">handoff</span>
+          </div>
+        </div>
+        <div class="card card-amber" style="padding:32px">
+          <span class="badge badge-beta">Beta</span>
+          <div class="agent-icon icon-voice" style="width:56px;height:56px;font-size:1.8rem;margin:12px 0">💡</div>
+          <h3 style="font-size:1.4rem">HR Copilot</h3>
+          <p style="font-size:0.95rem; margin:12px 0 20px">Не говорит в трубку. Шлёт подсказки в Telegram во время живого разговора человека.</p>
+          <div class="tools" style="margin-top:0">
+            <span class="tool-pill">copilot_hints</span>
+            <span class="tool-pill">telegram</span>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-auto" style="margin-top:16px; border-color:rgba(99,102,241,0.3)">
+        <p style="color:#c4b5fd"><strong style="color:#fff">Launchpad</strong> — путь клиента: сайт → черновик агента → тестовый звонок за 5 мин → активация. Сейчас invite-only concierge-пилот.</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>voice/docs/VOICE_LAUNCHPAD.md</span>
+      <span class="slide-num">07 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: Automation agents -->
+  <section class="slide">
+    <div class="blob blob-1"></div>
+    <div class="content">
+      <p class="tagline">Automation-агенты</p>
+      <h2 class="gradient-text mb-4">Работают без голоса — 24/7 в фоне</h2>
+      <div class="grid-4" style="flex:1; align-content:start">
+        <div class="card agent-card">
+          <div class="agent-icon icon-auto">🔍</div>
+          <span class="badge badge-active">Active</span>
+          <h3>SEO Agent</h3>
+          <p>Sitemap, meta, JSON-LD, agent-skills, Core Web Vitals</p>
+        </div>
+        <div class="card agent-card">
+          <div class="agent-icon icon-auto">📈</div>
+          <span class="badge badge-beta">Beta</span>
+          <h3>Marketing Analyst</h3>
+          <p>GA4 + Search Console → задачи ClickUp + Notion CEO</p>
+        </div>
+        <div class="card agent-card">
+          <div class="agent-icon icon-auto">🏛</div>
+          <span class="badge badge-live">Live</span>
+          <h3>AI Architect</h3>
+          <p>Консультация на veliform.com — Gemini, план автоматизации</p>
+        </div>
+        <div class="card agent-card">
+          <div class="agent-icon icon-auto">📝</div>
+          <span class="badge badge-live">Live</span>
+          <h3>CEO Steward</h3>
+          <p>Логирует изменения в Notion CEO после работы</p>
+        </div>
+        <div class="card agent-card" style="grid-column: span 2">
+          <div class="agent-icon icon-auto">⚡</div>
+          <span class="badge badge-live">Live</span>
+          <h3>GitHub CI</h3>
+          <p>Push в main → автоматическая строка в HQ activity feed. Engineering-отдел следит за деплоями.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Marketing & SEO · Operations · Engineering</span>
+      <span class="slide-num">08 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: Marketing deep dive -->
+  <section class="slide">
+    <div class="blob blob-3"></div>
+    <div class="content">
+      <p class="tagline">Marketing & SEO</p>
+      <h2 class="gradient-text mb-4">Как агенты приводят клиентов</h2>
+      <div class="grid-2" style="flex:1">
+        <div class="card card-emerald" style="padding:24px">
+          <h3>🔍 SEO Agent — техническое SEO</h3>
+          <ul style="margin-top:12px; padding-left:18px; color:#a1a1aa; font-size:0.88rem; line-height:1.9">
+            <li>Актуальный sitemap и robots.txt</li>
+            <li>Open Graph + JSON-LD на страницах</li>
+            <li><code>.well-known/agent-skills</code> для AI-краулеров</li>
+            <li>Follow-up по Lighthouse / CWV</li>
+          </ul>
+          <p style="margin-top:16px; font-size:0.8rem">→ Задачи в ClickUp <strong style="color:#6ee7b7">SEO & Marketing</strong></p>
+        </div>
+        <div class="card card-indigo" style="padding:24px">
+          <h3>📈 Marketing Analyst — трафик</h3>
+          <ul style="margin-top:12px; padding-left:18px; color:#a1a1aa; font-size:0.88rem; line-height:1.9">
+            <li><strong style="color:#fff">Ежедневно:</strong> падение трафика → 1 задача</li>
+            <li><strong style="color:#fff">Еженедельно:</strong> до 3 идей контента</li>
+            <li>Read-only Google · не публикует сам</li>
+            <li>Gemini формулирует углы</li>
+          </ul>
+          <p style="margin-top:16px; font-size:0.8rem">→ GitHub Actions · GA4 property <strong style="color:#a5b4fc">547070151</strong></p>
+        </div>
+        <div class="card card-violet" style="padding:24px; grid-column: span 2">
+          <h3>🏛 AI Architect — лидоген на главной</h3>
+          <p style="margin-top:8px">Клиент описывает бизнес → получает tagline, tech stack, 3 core features, complexity, strategic advice. События идут в GA4 для Marketing Analyst.</p>
+          <div class="flow" style="margin:16px 0 0; justify-content:flex-start">
+            <div class="flow-box card-violet" style="min-width:auto;padding:10px 16px;font-size:0.8rem">Описание бизнеса</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box card-indigo" style="min-width:auto;padding:10px 16px;font-size:0.8rem">Gemini CTO</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box card-emerald" style="min-width:auto;padding:10px 16px;font-size:0.8rem">План + CTA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SEO = findability · Analyst = growth · Architect = qualification</span>
+      <span class="slide-num">09 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: Org chart -->
+  <section class="slide">
+    <div class="blob blob-1"></div>
+    <div class="content">
+      <p class="tagline">Организация</p>
+      <h2 class="gradient-text mb-4">Карта AI-компании</h2>
+      <div class="org-root">Veliform · AI that runs your business</div>
+      <div class="dept-grid">
+        <div class="dept dept-indigo">
+          <div class="dept-name" style="color:#a5b4fc">Product</div>
+          <div class="dept-agents">Rose · Maya · HR Copilot<br/>Launchpad · Crewdesk</div>
+        </div>
+        <div class="dept dept-violet">
+          <div class="dept-name" style="color:#c4b5fd">Engineering</div>
+          <div class="dept-agents">GitHub CI<br/>Voice runtime · Landing</div>
+        </div>
+        <div class="dept dept-emerald">
+          <div class="dept-name" style="color:#6ee7b7">Marketing & SEO</div>
+          <div class="dept-agents">SEO Agent<br/>Marketing Analyst · AI Architect</div>
+        </div>
+        <div class="dept dept-amber">
+          <div class="dept-name" style="color:#fcd34d">Operations</div>
+          <div class="dept-agents">Alice · Secretary<br/>CEO Steward · HQ</div>
+        </div>
+      </div>
+      <div class="grid-2 mt-auto" style="margin-top:20px">
+        <div class="card" style="text-align:center;padding:16px">
+          <p style="font-size:0.85rem"><strong style="color:#fff">Josef Shainskiy</strong><br/>Founder / CEO · Product</p>
+        </div>
+        <div class="card" style="text-align:center;padding:16px">
+          <p style="font-size:0.85rem"><strong style="color:#fff">10 AI-агентов</strong><br/>5 voice · 5 automation · HQ dashboard</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Источник: meta/ceo/org.yaml → veliform.com/hq</span>
+      <span class="slide-num">10 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: Typical day -->
+  <section class="slide">
+    <div class="blob blob-2"></div>
+    <div class="content">
+      <p class="tagline">Сквозной сценарий</p>
+      <h2 class="gradient-text mb-4">Типичный день Veliform</h2>
+      <div class="timeline">
+        <div class="timeline-item card-indigo">
+          <span class="time">Утро</span>
+          <p>Marketing Analyst проверил GA4. Падений нет — задач не создал.</p>
+        </div>
+        <div class="timeline-item card-violet">
+          <span class="time">День</span>
+          <p>Клиент на veliform.com → AI Architect → событие в GA4. Prospect звонит Rose → заказ или handoff.</p>
+        </div>
+        <div class="timeline-item card-emerald">
+          <span class="time">Владелец</span>
+          <p>Josef звонит Alice: календарь, «что по Voice?». Незнакомый → Secretary принимает сообщение.</p>
+        </div>
+        <div class="timeline-item card-amber">
+          <span class="time">Вечер</span>
+          <p>Push в main → GitHub CI → CEO Update → строка в HQ activity stream.</p>
+        </div>
+      </div>
+      <div class="card mt-auto" style="margin-top:20px; border-color:rgba(16,185,129,0.3)">
+        <p style="text-align:center; color:#6ee7b7">Всё связано: сайт → аналитика → задачи → код → история → дашборд</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Автоматизация + человек там, где нужно решение</span>
+      <span class="slide-num">11 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: Roadmap -->
+  <section class="slide">
+    <div class="blob blob-1"></div>
+    <div class="content">
+      <p class="tagline">Roadmap</p>
+      <h2 class="gradient-text mb-4">Что строим сейчас</h2>
+      <div class="grid-2" style="flex:1">
+        <div class="card card-emerald">
+          <span class="badge badge-live">Live</span>
+          <h3>HQ Dashboard v1</h3>
+          <p>veliform.com/hq — org map, agent roster, product board, activity stream.</p>
+        </div>
+        <div class="card card-indigo">
+          <span class="badge badge-live">Building</span>
+          <h3>Voice Phase D</h3>
+          <p>Maya / real estate — второй business-tenant + admin UI для tenant #2.</p>
+        </div>
+        <div class="card card-violet">
+          <span class="badge badge-planned">Planned</span>
+          <h3>Copilot Server</h3>
+          <p>Отдельный Railway deploy для Voice Copilot product line.</p>
+        </div>
+        <div class="card card-amber">
+          <span class="badge badge-beta">Building</span>
+          <h3>Crewdesk SaaS</h3>
+          <p>MVP v0 — landing, hire roster, local demo dashboard. Auth + Postgres v1.</p>
+        </div>
+      </div>
+      <div class="card mt-auto" style="margin-top:16px">
+        <h3>🚀 Launchpad — ключевой milestone Voice</h3>
+        <p>Сайт клиента → draft agent → test call за 5 мин → activation. Prove: два разных tenant через один onboarding.</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Jul 2026 · meta/ceo/org.yaml plans</span>
+      <span class="slide-num">12 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: For clients -->
+  <section class="slide">
+    <div class="blob blob-3"></div>
+    <div class="content">
+      <p class="tagline">Для клиентов</p>
+      <h2 class="gradient-text mb-4">Что вы получаете</h2>
+      <div class="grid-2" style="flex:1">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="card card-emerald"><h3>📞 24/7 на телефоне</h3><p>AI отвечает, знает ваш бизнес, оформляет заказы и лиды.</p></div>
+          <div class="card card-indigo"><h3>🌐 Вас находят в Google</h3><p>SEO Agent + Marketing Analyst следят за видимостью и трафиком.</p></div>
+          <div class="card card-violet"><h3>🤝 Handoff на человека</h3><p>Злой клиент или сложный случай — перевод на ваш mobile.</p></div>
+        </div>
+        <div class="card card-cyan" style="padding:28px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-size:1.5rem; margin-bottom:16px">Пилот сейчас</h3>
+          <p style="font-size:1rem; color:#d4d4d8; line-height:1.7">Invite-only concierge: мы проводим онбординг вручную, пока Launchpad и billing не в public beta.</p>
+          <p style="margin-top:20px; font-size:0.9rem"><strong style="color:#fff">Первый value moment:</strong> клиент слышит агента, который уже знает его бизнес — не generic demo.</p>
+          <p style="margin-top:16px; color:var(--cyan); font-size:0.85rem">hello@veliform.com · veliform.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Veliform Voice · Business Platform</span>
+      <span class="slide-num">13 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 14: For team -->
+  <section class="slide">
+    <div class="blob blob-1"></div>
+    <div class="content">
+      <p class="tagline">Для команды</p>
+      <h2 class="gradient-text mb-4">Куда смотреть — шпаргалка</h2>
+      <div class="grid-2" style="flex:1">
+        <div class="card" style="padding:0; overflow:hidden">
+          <table style="width:100%; border-collapse:collapse; font-size:0.85rem">
+            <tr style="background:rgba(99,102,241,0.15)">
+              <th style="padding:12px 16px; text-align:left; color:#a5b4fc">Вопрос</th>
+              <th style="padding:12px 16px; text-align:left; color:#a5b4fc">Куда</th>
+            </tr>
+            <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px">Что делать?</td><td style="padding:10px 16px; color:#6ee7b7">ClickUp VeliForm</td></tr>
+            <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px">Стадия продукта?</td><td style="padding:10px 16px; color:#c4b5fd">Notion CEO Projects</td></tr>
+            <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px">Что изменилось?</td><td style="padding:10px 16px; color:#fcd34d">HQ Activity stream</td></tr>
+            <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px">Архитектура Voice?</td><td style="padding:10px 16px">voice/docs/</td></tr>
+            <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px">Полный гайд?</td><td style="padding:10px 16px">meta/docs/COMPANY_GUIDE_RU.md</td></tr>
+          </table>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="card card-indigo">
+            <h3>Первые 30 минут</h3>
+            <ol style="margin-top:10px; padding-left:18px; color:#a1a1aa; font-size:0.85rem; line-height:2">
+              <li>Открыть veliform.com/hq</li>
+              <li>Notion CEO Projects</li>
+              <li>ClickUp — открытые задачи</li>
+              <li>Позвонить Rose — услышать продукт</li>
+            </ol>
+          </div>
+          <div class="card card-amber">
+            <h3>⚠️ Не путать</h3>
+            <p style="font-size:0.82rem; margin-top:8px">Prod env на Vercel project <strong style="color:#fff">porqa</strong>, не veliform-landing. Personal ≠ Business Voice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Onboarding · Jul 2026</span>
+      <span class="slide-num">14 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 15: Systems map -->
+  <section class="slide">
+    <div class="blob blob-2"></div>
+    <div class="content">
+      <p class="tagline">Инфраструктура</p>
+      <h2 class="gradient-text mb-4">Где что живёт</h2>
+      <div class="grid-3" style="flex:1">
+        <div class="card card-indigo" style="padding:24px">
+          <h3>📦 Репозитории</h3>
+          <ul style="margin-top:12px; font-size:0.82rem; color:#a1a1aa; line-height:2; list-style:none">
+            <li><code>meta/</code> — CEO registry</li>
+            <li><code>veliform-landing/</code> — сайт + HQ</li>
+            <li><code>voice/</code> — Voice Agent</li>
+            <li><code>agent-company/</code> — Crewdesk MVP</li>
+          </ul>
+        </div>
+        <div class="card card-emerald" style="padding:24px">
+          <h3>☁️ Production</h3>
+          <ul style="margin-top:12px; font-size:0.82rem; color:#a1a1aa; line-height:2; list-style:none">
+            <li>veliform.com → Vercel</li>
+            <li>Voice → Railway</li>
+            <li>Notion → CEO layer</li>
+            <li>ClickUp → tasks</li>
+          </ul>
+        </div>
+        <div class="card card-violet" style="padding:24px">
+          <h3>🔄 Авто-синхронизация</h3>
+          <ul style="margin-top:12px; font-size:0.82rem; color:#a1a1aa; line-height:2; list-style:none">
+            <li>git push → CEO Update</li>
+            <li>HQ polls Notion 30s</li>
+            <li>org.yaml → build sync</li>
+            <li>Marketing → ClickUp tasks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>~/WORKSPACE/veliform/</span>
+      <span class="slide-num">15 / 16</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 16: Closing -->
+  <section class="slide title-slide">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="content">
+      <p class="tagline">Veliform</p>
+      <h1 class="gradient-text">AI-компания,<br/>которая работает</h1>
+      <p class="lead" style="margin-top:20px">10 агентов · 3 продукта · 3 слоя управления · один дашборд</p>
+      <div class="meta-row">
+        <span class="meta-chip">🌐 veliform.com</span>
+        <span class="meta-chip">📊 veliform.com/hq</span>
+        <span class="meta-chip">✉️ hello@veliform.com</span>
+      </div>
+      <p style="margin-top:32px; font-size:0.8rem; color:#52525b">PDF: Cmd+P → «Сохранить как PDF» → Landscape → Background graphics ✓</p>
+    </div>
+    <div class="slide-footer">
+      <span>meta/docs/presentation/veliform-company-deck.html</span>
+      <span class="slide-num">16 / 16</span>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav-hint">
+  <kbd>←</kbd> <kbd>→</kbd> или <kbd>Space</kbd> — навигация &nbsp;·&nbsp; <kbd>P</kbd> — печать / PDF
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function show(i) {
+    slides[current].classList.remove('active');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    document.getElementById('progress').style.width = ((current + 1) / slides.length * 100) + '%';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(current + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
+    if (e.key === 'p' || e.key === 'P') { window.print(); }
+  });
+
+  // touch swipe
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) show(diff > 0 ? current + 1 : current - 1);
+  });
+
+  document.getElementById('progress').style.width = (1 / slides.length * 100) + '%';
+</script>
+</body>
+</html>
