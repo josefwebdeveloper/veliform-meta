@@ -39,7 +39,7 @@ repos:
     product_slug: agent-company-saas
     notion_workstream_slug: agent-company
     github: josefwebdeveloper/agent-company
-    prod_url: null
+    prod_url: https://agent-company-navy.vercel.app
     deploy: vercel
     notes: MVP v2 — Clerk auth + Neon Postgres + Vercel API + cron
 
