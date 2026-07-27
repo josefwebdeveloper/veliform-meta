@@ -8,6 +8,7 @@ Company-level registry for **Veliform**: CEO Notion hub config, bootstrap script
 ~/WORKSPACE/veliform/
 ├── meta/              ← this repo (CEO registry, bootstrap)
 ├── veliform-landing/  ← veliform.com company site (Vercel)
+├── agent-company/     ← Crewdesk — Agent Company SaaS (MVP v0)
 ├── voice/             ← Veliform Voice Agent
 └── …
 ```
@@ -27,6 +28,8 @@ Open **`veliform.code-workspace`** in Cursor.
 Setup guide: [docs/NOTION_CEO.md](docs/NOTION_CEO.md)
 
 Project registry: [ceo/projects.yaml](ceo/projects.yaml)
+
+Ideas backlog: [ceo/ideas.yaml](ceo/ideas.yaml) · [docs/ideas/AGENT_COMPANY_SAAS.md](docs/ideas/AGENT_COMPANY_SAAS.md)
 
 Org + agents (HQ dashboard): [ceo/org.yaml](ceo/org.yaml) · [docs/COMPANY_HQ.md](docs/COMPANY_HQ.md)
 

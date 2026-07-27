@@ -40,6 +40,16 @@ API. It creates at most one daily anomaly task or three weekly opportunity tasks
 with a deterministic fingerprint to prevent duplicates. Interactive Cursor work
 continues to use ClickUp MCP.
 
+## Ideas backlog (будущие продукты)
+
+List `📋 Backlog` — эпики и discovery-задачи для продуктов **без репо**. Не путать с ops-задачами HQ.
+
+| Idea slug | ClickUp | Spec |
+|-----------|---------|------|
+| `agent-company-saas` | Epic «Agent Company SaaS» · [task](https://app.clickup.com/t/86eydxhzx) | [`docs/ideas/AGENT_COMPANY_SAAS.md`](ideas/AGENT_COMPANY_SAAS.md) |
+
+Stage/Tier — в Notion CEO (Type = Idea). При старте build — новый repo + workstream slug.
+
 ## HQ Agent — типичные задачи
 
 List `🏗 Company HQ`:

@@ -23,7 +23,10 @@ veliform.com/hq  → live-дашборд (org + Notion)
 |------|-----------------|
 | veliform-landing | `veliform-landing` |
 | voice | `voice-agent` |
+| agent-company | `agent-company` |
 | meta | — |
+
+Product slug (CEO Notion): `agent-company-saas`. Spec: [`docs/ideas/AGENT_COMPANY_SAAS.md`](ideas/AGENT_COMPANY_SAAS.md).
 
 ## ClickUp
 

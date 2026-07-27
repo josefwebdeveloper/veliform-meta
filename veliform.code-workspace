@@ -9,6 +9,10 @@
       "path": "../veliform-landing"
     },
     {
+      "name": "Crewdesk (Agent Company)",
+      "path": "../agent-company"
+    },
+    {
       "name": "Veliform Voice",
       "path": "../voice"
     }

@@ -5,7 +5,8 @@ Use when the user asks about company projects, stages, stale projects, or loggin
 ## Registry location
 
 - **Notion**: CEO Projects + CEO Updates (setup: `docs/NOTION_CEO.md` in veliform-meta)
-- **Slugs**: `ceo/projects.yaml` in veliform-meta repo
+- **Slugs**: `ceo/projects.yaml` (repos) + `ceo/ideas.yaml` (future products)
+- **Ideas docs**: `docs/ideas/*.md`
 
 ## Slugs (bootstrap)
 
@@ -13,6 +14,7 @@ Use when the user asks about company projects, stages, stale projects, or loggin
 |------|------|------|
 | `veliform-voice` | Veliform Voice Agent | Product |
 | `voice-agent` | voice-agent repo | Workstream |
+| `agent-company-saas` | Agent Company SaaS | Idea |
 
 ## Log an update (template)
 

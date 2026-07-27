@@ -54,6 +54,16 @@ Veliform (company page in Notion — optional)
 | Veliform Voice Agent | veliform-voice | Product | Building | Active | — |
 | voice-agent repo | voice-agent | Workstream | Building | Active | Veliform Voice Agent |
 
+### Ideas backlog
+
+Add rows with **Type = Idea**, **Tier = Idea**. Full spec in git: [`docs/ideas/AGENT_COMPANY_SAAS.md`](ideas/AGENT_COMPANY_SAAS.md).
+
+| Name | Slug | Type | Stage | Tier | Priority | Next action |
+|------|------|------|-------|------|----------|-------------|
+| Agent Company SaaS | agent-company-saas | Idea → Building | Idea | P2 | Auth + Postgres v1; port Marketing Analyst |
+
+Registry mirror: [`ceo/ideas.yaml`](../ceo/ideas.yaml).
+
 ## 2. Create CEO Updates database
 
 | Property | Type | Notes |

@@ -1,0 +1,22 @@
+# Veliform product ideas — not yet repos. Source for CEO Notion + HQ plans.
+# Full backlog: docs/ideas/<slug>.md
+
+ideas:
+  - slug: agent-company-saas
+    name: Agent Company SaaS
+    tagline: Open an AI company online — hire automation agents, monitor on a dashboard
+    stage: building
+    tier: idea
+    priority: P2
+    next_action: Wire auth + Postgres (v1); port Marketing Analyst worker
+    docs: docs/ideas/AGENT_COMPANY_SAAS.md
+    repo_path: ../agent-company
+    clickup_list: backlog
+    clickup_task: https://app.clickup.com/t/86eydxhzx
+    related_products: []
+    excludes:
+      - veliform-voice
+      - veliform-company
+    notes: |
+      Separate B2B SaaS. Not voice agents. Customer hires SEO/marketing/ops automation
+      agents via web app. Dogfooding reference: veliform.com/hq + automation agents in org.yaml.

@@ -32,6 +32,19 @@ repos:
       - apps/business-server/
       - docs/
 
-# Add more products:
+  - slug: agent-company
+    name: Crewdesk (Agent Company SaaS)
+    git: null
+    path: agent-company
+    product_slug: agent-company-saas
+    notion_workstream_slug: agent-company
+    github: null
+    prod_url: null
+    deploy: null
+    notes: MVP v0 local demo — repo not pushed yet
+
+# Future products (no repo yet): see ceo/ideas.yaml + docs/ideas/
+
+# Add more repos:
 #  - slug: other-product
 #    git: ...
