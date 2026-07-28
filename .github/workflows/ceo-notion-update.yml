@@ -1,0 +1,27 @@
+name: CEO Notion update
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  log-ceo-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log CEO update to Notion
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_CEO_UPDATES_DATABASE_ID: ${{ secrets.NOTION_CEO_UPDATES_DATABASE_ID }}
+          NOTION_CEO_PROJECTS_DATABASE_ID: ${{ secrets.NOTION_CEO_PROJECTS_DATABASE_ID }}
+          CEO_TITLE: ${{ github.event.head_commit.message }}
+          CEO_SUMMARY: ${{ github.event.head_commit.message }}
+          CEO_LINK: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+        run: |
+          python3 scripts/notion_log_update.py \
+            --slug veliform-landing \
+            --source git \
+            --title "${{ github.event.head_commit.message }}" \
+            --summary "${{ github.event.head_commit.message }}" \
+            --link "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
