@@ -15,10 +15,11 @@ jobs:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_CEO_UPDATES_DATABASE_ID: ${{ secrets.NOTION_CEO_UPDATES_DATABASE_ID }}
           NOTION_CEO_PROJECTS_DATABASE_ID: ${{ secrets.NOTION_CEO_PROJECTS_DATABASE_ID }}
-          CEO_TITLE: ${{ github.event.head_commit.message }}
-          CEO_SUMMARY: ${{ github.event.head_commit.message }}
-          CEO_LINK: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
         run: |
+          if [ -z "$NOTION_API_KEY" ] || [ -z "$NOTION_CEO_UPDATES_DATABASE_ID" ]; then
+            echo "Notion secrets not configured on this repo — skip"
+            exit 0
+          fi
           python3 scripts/notion_log_update.py \
             --slug veliform-landing \
             --source git \
