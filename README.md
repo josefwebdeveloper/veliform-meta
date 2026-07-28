@@ -37,6 +37,8 @@ Task sync (ClickUp + Notion + HQ): [docs/TASK_SYNC.md](docs/TASK_SYNC.md) · Cli
 
 Autonomous traffic + content-opportunity reporting: [docs/MARKETING_AGENT.md](docs/MARKETING_AGENT.md)
 
+Business presentation (numbers & dates): [docs/presentations/](docs/presentations/)
+
 ## Push this repo
 
 ```bash
