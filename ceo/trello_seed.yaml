@@ -1,0 +1,46 @@
+# Seed cards for Trello bootstrap — imported from former ClickUp structure (2026-07-29)
+
+voice:
+  in_progress:
+    - name: "Phase D: listings DB + search_listings / get_listing"
+      desc: "RE tenant · voice-server · High priority"
+    - name: "Phase D: book_viewing tool"
+      desc: "RE tenant · voice-server · High priority"
+  backlog:
+    - name: "Phase D: RE prompt + full tool set"
+      desc: "Phase D · voice-server · High"
+    - name: "Phase D: second business Twilio number (optional)"
+      desc: "Phase D · voice-server · Medium"
+    - name: "Phase D: admin UI for tenant #2"
+      desc: "Phase D · voice-server · Medium"
+    - name: "RE tenant: seed demo listings"
+      desc: "Phase D · voice-server · Medium"
+    - name: "GTFS+SIRI transport phase 2"
+      desc: "Real-time departures · voice-server · Medium"
+  ops:
+    - name: "Enable People API + Maps billing for Google integrations"
+      desc: "GCP project · personal-server"
+    - name: "Optional TAVILY_API_KEY on both Railway services"
+      desc: "DuckDuckGo fallback already works"
+  personal:
+    - name: "Monitor Calendar OAuth refresh token expiry"
+      desc: "personal-server"
+    - name: "Browser voice UX — monitor Realtime errors"
+      desc: "assistant.html · fixed 2026-07-29 — verify in prod"
+  done:
+    - name: "Phase A–C: routing, split deploy, multi-tenant"
+      desc: "Voice platform foundation"
+    - name: "Personal: Calendar, Gmail, Notion, Telegram, web search"
+      desc: "Alice assistant core"
+    - name: "Google transport (Routes API) + Drive aliases"
+      desc: "personal-server · 2026-07-29"
+    - name: "Browser voice UX fixes (greeting, interrupt, errors)"
+      desc: "assistant.html · 2026-07-29"
+
+company:
+  backlog:
+    - name: "WeOffice (Agent Company SaaS) — MVP v2"
+      desc: "Clerk + Neon + Vercel · see docs/ideas/AGENT_COMPANY_SAAS.md"
+  seo_marketing:
+    - name: "SEO baseline: sitemap, meta, JSON-LD"
+      desc: "veliform-landing · ongoing"

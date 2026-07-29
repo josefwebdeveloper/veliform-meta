@@ -3,18 +3,18 @@
 Три слоя — не дублировать ops-детали, только ссылки.
 
 ```
-ClickUp          → задачи (что делать, статус, приоритет)
+Trello           → задачи (cards: что делать, статус)
 Notion CEO       → реестр продуктов + лог активности (что произошло)
 veliform.com/hq  → live-дашборд (org + Notion)
 ```
 
 ## Кто что пишет
 
-| Событие | ClickUp | Notion CEO | Git / deploy |
-|---------|---------|------------|--------------|
-| Закрыли фичу в коде | задача → Done | CEO Update (cursor/git) | push → Action |
-| SEO правка landing | задача в Marketing list | Update `veliform-landing` | push landing |
-| Voice / Railway | list по сервису | Update `voice-agent` | push voice |
+| Событие | Trello | Notion CEO | Git / deploy |
+|---------|--------|------------|--------------|
+| Закрыли фичу в коде | card → ✅ Done list | CEO Update (cursor/git) | push → Action |
+| SEO правка landing | card в SEO & Marketing | Update `veliform-landing` | push landing |
+| Voice / Railway | Voice board list | Update `voice-agent` | push voice |
 | «Что по компании?» | — | read only | — |
 
 ## Slugs (Notion)
@@ -26,22 +26,24 @@ veliform.com/hq  → live-дашборд (org + Notion)
 | agent-company | `agent-company` |
 | meta | — |
 
-Product slug (CEO Notion): `agent-company-saas`. Spec: [`docs/ideas/AGENT_COMPANY_SAAS.md`](ideas/AGENT_COMPANY_SAAS.md).
+## Trello
 
-## ClickUp
-
-- Voice: [`voice/docs/CLICKUP_PROJECT.md`](../../voice/docs/CLICKUP_PROJECT.md)
-- Company / SEO: [`docs/CLICKUP_VELIFORM.md`](CLICKUP_VELIFORM.md)
+- Company / SEO: [`docs/TRELLO_VELIFORM.md`](TRELLO_VELIFORM.md)
+- Voice: [`voice/docs/TRELLO_PROJECT.md`](../../voice/docs/TRELLO_PROJECT.md)
+- Bootstrap: `meta/scripts/trello_bootstrap.py`
+- Registry: `meta/ceo/trello.yaml`
 
 ## Cursor rules
 
 - `meta/.cursor/rules/ceo-registry.mdc` — Notion CEO после работы
-- `meta/.cursor/rules/clickup-sync.mdc` — ClickUp после задач
-- `meta/.cursor/rules/seo-steward.mdc` — SEO + ClickUp Marketing list
-- `voice/.cursor/rules/clickup.mdc` — Voice ClickUp structure
+- `meta/.cursor/rules/trello-sync.mdc` — Trello после задач
+- `voice/.cursor/rules/trello.mdc` — Voice board structure
 
 ## MCP
 
-1. **ClickUp:** Cursor → Settings → Tools & MCP → ClickUp → **Connect** (OAuth)
-2. Конфиг: `meta/.cursor/mcp.json`, `voice/.cursor/mcp.json`
-3. После Connect: «ClickUp подключён» → lists в [CLICKUP_VELIFORM.md](CLICKUP_VELIFORM.md) (Company Site folder live)
+1. **Trello:** fill `TRELLO_API_KEY` + `TRELLO_TOKEN` in `.cursor/mcp.json` → Reload
+2. **Notion:** Cursor → Settings → Tools & MCP → Notion → Connect
+
+## Deprecated
+
+ClickUp retired 2026-07-29. Old docs: `CLICKUP_VELIFORM.md`, `voice/docs/CLICKUP_PROJECT.md`.

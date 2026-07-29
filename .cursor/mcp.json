@@ -1,7 +1,12 @@
 {
   "mcpServers": {
-    "clickup": {
-      "url": "https://mcp.clickup.com/mcp"
+    "trello": {
+      "command": "npx",
+      "args": ["-y", "@thadeu/trello-mcp@0.2.10"],
+      "env": {
+        "TRELLO_API_KEY": "",
+        "TRELLO_TOKEN": ""
+      }
     }
   }
 }

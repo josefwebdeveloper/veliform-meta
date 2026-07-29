@@ -9,10 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Notion CEO + ClickUp Company HQ
+      - name: Notion CEO + Trello Company HQ
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_CEO_UPDATES_DATABASE_ID: ${{ secrets.NOTION_CEO_UPDATES_DATABASE_ID }}
           NOTION_CEO_PROJECTS_DATABASE_ID: ${{ secrets.NOTION_CEO_PROJECTS_DATABASE_ID }}
-          CLICKUP_API_TOKEN: ${{ secrets.CLICKUP_API_TOKEN }}
+          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+          TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+          TRELLO_COMPANY_HQ_LIST_ID: ${{ secrets.TRELLO_COMPANY_HQ_LIST_ID }}
         run: python3 scripts/sync_presentation_ops.py

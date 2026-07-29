@@ -1,0 +1,30 @@
+---
+description: After completing work, sync actionable tasks in Trello via MCP when connected.
+alwaysApply: true
+---
+
+# Trello sync (Veliform)
+
+Trello = **tasks** (cards on lists). Notion CEO = **activity log** (see `ceo-registry.mdc`). Both when work is non-trivial.
+
+## MCP
+
+- Server: `@thadeu/trello-mcp` in `meta/.cursor/mcp.json`, `voice/.cursor/mcp.json`
+- Credentials: `TRELLO_API_KEY` + `TRELLO_TOKEN` — see [TRELLO_VELIFORM.md](../docs/TRELLO_VELIFORM.md)
+
+## After finishing work
+
+1. **Identify list** from repo:
+   - `veliform-landing` / SEO / marketing → **Veliform Company** → 🌐 SEO & Marketing
+   - `veliform-landing` / HQ → **Veliform Company** → 🏗 Company HQ
+   - `voice` → **Veliform Voice** lists in [voice/docs/TRELLO_PROJECT.md](../../voice/docs/TRELLO_PROJECT.md)
+2. **Update or create card:**
+   - Done work → move to ✅ Done (voice) or archive
+   - New follow-up → card on Backlog / In Progress
+3. **Card description:** 1–3 lines + link to commit/PR. No secrets.
+4. **Also:** CEO Update in Notion when product direction or deploy changed.
+
+## Do not
+
+- Duplicate entire `PROJECT_LOG.md` into Trello
+- Create duplicate boards — run bootstrap once, then use `ceo/trello.yaml` IDs

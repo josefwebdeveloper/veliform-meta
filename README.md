@@ -33,7 +33,7 @@ Ideas backlog: [ceo/ideas.yaml](ceo/ideas.yaml) · [docs/ideas/AGENT_COMPANY_SAA
 
 Org + agents (HQ dashboard): [ceo/org.yaml](ceo/org.yaml) · [docs/COMPANY_HQ.md](docs/COMPANY_HQ.md)
 
-Task sync (ClickUp + Notion + HQ): [docs/TASK_SYNC.md](docs/TASK_SYNC.md) · ClickUp company lists: [docs/CLICKUP_VELIFORM.md](docs/CLICKUP_VELIFORM.md)
+Task sync (Trello + Notion + HQ): [docs/TASK_SYNC.md](docs/TASK_SYNC.md) · Trello: [docs/TRELLO_VELIFORM.md](docs/TRELLO_VELIFORM.md)
 
 Autonomous traffic + content-opportunity reporting: [docs/MARKETING_AGENT.md](docs/MARKETING_AGENT.md)
 

@@ -11,8 +11,8 @@ ideas:
     next_action: Migrate to Vercel + Neon + Clerk; deploy preview; port Marketing Analyst worker (v2)
     docs: docs/ideas/AGENT_COMPANY_SAAS.md
     repo_path: ../agent-company
-    clickup_list: backlog
-    clickup_task: https://app.clickup.com/t/86eydxhzx
+    trello_list: backlog
+    trello_board: company
     related_products: []
     excludes:
       - veliform-voice

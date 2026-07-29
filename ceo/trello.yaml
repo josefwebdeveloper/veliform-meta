@@ -1,0 +1,47 @@
+# Veliform Trello registry — list/board IDs filled by scripts/trello_bootstrap.py
+# Credentials: TRELLO_API_KEY + TRELLO_TOKEN (never commit)
+
+boards:
+  company:
+    name: Veliform Company
+    id: null
+    url: null
+    lists:
+      seo_marketing:
+        name: "🌐 SEO & Marketing"
+        id: null
+      company_hq:
+        name: "🏗 Company HQ"
+        id: null
+      backlog:
+        name: "📋 Backlog"
+        id: null
+
+  voice:
+    name: Veliform Voice
+    id: null
+    url: null
+    lists:
+      done:
+        name: "✅ Done"
+        id: null
+      in_progress:
+        name: "🚧 In Progress"
+        id: null
+      backlog:
+        name: "📋 Backlog"
+        id: null
+      ops:
+        name: "🔧 Ops & Integrations"
+        id: null
+      business:
+        name: "🏢 Business Platform"
+        id: null
+      personal:
+        name: "👤 Personal Line"
+        id: null
+
+# Agent automation targets (list keys → resolved at bootstrap)
+automation:
+  marketing_analyst: company.seo_marketing
+  finance_agent: company.company_hq

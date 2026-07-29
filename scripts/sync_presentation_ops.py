@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync business presentation deliverables to Notion CEO + ClickUp (Company HQ list)."""
+"""Sync business presentation deliverables to Notion CEO + Trello (Company HQ list)."""
 
 from __future__ import annotations
 
@@ -18,8 +18,8 @@ GITHUB_LINK = os.environ.get(
     "https://github.com/josefwebdeveloper/veliform-meta/blob/main/"
     "docs/presentations/VELIFORM_BUSINESS_PRESENTATION_2026-07-28.md",
 )
-CLICKUP_LIST_ID = "901819936119"  # Company HQ
-CLICKUP_API = "https://api.clickup.com/api/v2"
+sys.path.insert(0, str(META_ROOT / "scripts"))
+from trello_client import create_card  # noqa: E402
 
 TITLE = "Business presentation: goal, profit model, KPIs (2026-07-28)"
 SUMMARY = (
@@ -30,30 +30,21 @@ SUMMARY = (
 )
 
 
-def _clickup_create_task(token: str) -> dict:
-    body = {
-        "name": TITLE,
-        "description": (
+def _trello_create_card() -> dict:
+    list_id = os.environ.get("TRELLO_COMPANY_HQ_LIST_ID", "").strip()
+    if not list_id:
+        raise RuntimeError("TRELLO_COMPANY_HQ_LIST_ID is not set")
+    return create_card(
+        list_id,
+        name=TITLE,
+        desc=(
             f"{SUMMARY}\n\n"
             f"- EN deck: {GITHUB_LINK}\n"
             f"- RU deck: veliform-meta/docs/presentations/"
             f"VELIFORM_BUSINESS_PRESENTATION_2026-07-28_RU.md\n"
             f"- Commit: {COMMIT}\n"
         ),
-        "status": "complete",
-        "tags": ["ceo-steward", "presentation"],
-    }
-    req = urllib.request.Request(
-        f"{CLICKUP_API}/list/{CLICKUP_LIST_ID}/task",
-        data=json.dumps(body).encode(),
-        headers={
-            "Authorization": token,
-            "Content-Type": "application/json",
-        },
-        method="POST",
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode())
 
 
 def main() -> int:
@@ -90,15 +81,14 @@ def main() -> int:
     else:
         results["notion"] = "skipped — NOTION_API_KEY or NOTION_CEO_UPDATES_DATABASE_ID not set"
 
-    token = env.get("CLICKUP_API_TOKEN", "").strip()
-    if token:
+    if os.environ.get("TRELLO_API_KEY") and os.environ.get("TRELLO_TOKEN"):
         try:
-            task = _clickup_create_task(token)
-            results["clickup"] = json.dumps({"ok": True, "id": task.get("id"), "url": task.get("url")})
-        except urllib.error.HTTPError as exc:
-            results["clickup"] = f"HTTP {exc.code}: {exc.read().decode()[:300]}"
+            card = _trello_create_card()
+            results["trello"] = json.dumps({"ok": True, "id": card.get("id"), "url": card.get("url")})
+        except Exception as exc:
+            results["trello"] = str(exc)[:300]
     else:
-        results["clickup"] = "skipped — CLICKUP_API_TOKEN not set"
+        results["trello"] = "skipped — TRELLO_API_KEY / TRELLO_TOKEN not set"
 
     print(json.dumps(results, indent=2))
     synced = any("ok" in v for v in results.values())

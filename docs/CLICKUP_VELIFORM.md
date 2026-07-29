@@ -1,3 +1,5 @@
+> **DEPRECATED 2026-07-29** — migrated to Trello. See [`TRELLO_VELIFORM.md`](TRELLO_VELIFORM.md).
+
 # ClickUp — Veliform Company (landing, SEO, HQ)
 
 > Workspace: Joseph Shain (`90182909934`). Voice lists — [`voice/docs/CLICKUP_PROJECT.md`](../../voice/docs/CLICKUP_PROJECT.md).
