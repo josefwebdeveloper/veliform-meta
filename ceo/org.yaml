@@ -48,8 +48,8 @@ agents:
     product_slug: veliform-voice
     workstream_slug: voice-agent
     status: live
-    focus: Personal assistant — calendar, Gmail, Notion, CEO registry
-    tools: [calendar, gmail, notion_tasks, get_ceo_status, log_ceo_update]
+    focus: Personal assistant — calendar, Gmail, transport (Routes), Contacts, Docs, CEO registry
+    tools: [calendar, gmail, transport_search_route, transport_calculate_leave_time, notion_tasks, get_ceo_status, log_ceo_update]
     deploy: personal-server
 
   - id: secretary
