@@ -7,8 +7,6 @@ import json
 import os
 import subprocess
 import sys
-import urllib.error
-import urllib.request
 from pathlib import Path
 
 META_ROOT = Path(__file__).resolve().parents[1]

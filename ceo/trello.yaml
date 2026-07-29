@@ -1,47 +1,41 @@
-# Veliform Trello registry — list/board IDs filled by scripts/trello_bootstrap.py
-# Credentials: TRELLO_API_KEY + TRELLO_TOKEN (never commit)
-
 boards:
   company:
     name: Veliform Company
-    id: null
-    url: null
+    id: 6a6a25236d5377202ceac5ce
+    url: https://trello.com/b/mC7dh3E5/veliform-company
     lists:
       seo_marketing:
-        name: "🌐 SEO & Marketing"
-        id: null
+        name: 🌐 SEO & Marketing
+        id: 6a6a2524416a2555e4272ec9
       company_hq:
-        name: "🏗 Company HQ"
-        id: null
+        name: 🏗 Company HQ
+        id: 6a6a2526af95b80cc9c86bb0
       backlog:
-        name: "📋 Backlog"
-        id: null
-
+        name: 📋 Backlog
+        id: 6a6a252783f1b3f66d3e6949
   voice:
     name: Veliform Voice
-    id: null
-    url: null
+    id: 6a6a252a1ae25c6f63f9c45d
+    url: https://trello.com/b/E9yxrXkA/veliform-voice
     lists:
       done:
-        name: "✅ Done"
-        id: null
+        name: ✅ Done
+        id: 6a6a252b6a1a1f80e807c8be
       in_progress:
-        name: "🚧 In Progress"
-        id: null
+        name: 🚧 In Progress
+        id: 6a6a25302b2bbe282e57f44c
       backlog:
-        name: "📋 Backlog"
-        id: null
+        name: 📋 Backlog
+        id: 6a6a2535ba778b5ba8fb6caf
       ops:
-        name: "🔧 Ops & Integrations"
-        id: null
+        name: 🔧 Ops & Integrations
+        id: 6a6a253a65a5a9a783994d94
       business:
-        name: "🏢 Business Platform"
-        id: null
+        name: 🏢 Business Platform
+        id: 6a6a253c3a9e27dd107bd382
       personal:
-        name: "👤 Personal Line"
-        id: null
-
-# Agent automation targets (list keys → resolved at bootstrap)
+        name: 👤 Personal Line
+        id: 6a6a253d57fb726b9cdccc0f
 automation:
   marketing_analyst: company.seo_marketing
   finance_agent: company.company_hq
