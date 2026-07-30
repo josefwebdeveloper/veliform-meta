@@ -18,6 +18,9 @@ repos:
     github: josefwebdeveloper/veliform-landing
     prod_url: https://veliform.com
     deploy: vercel
+    paths:
+      voice_seo: /voice
+      hq: /hq
 
   - slug: voice
     name: Veliform Voice Agent
@@ -26,6 +29,13 @@ repos:
     product_slug: veliform-voice
     notion_workstream_slug: voice-agent
     github: josefwebdeveloper/voice-agent
+    prod_url: https://app.veliform.com
+    urls:
+      app: https://app.veliform.com
+      start: https://app.veliform.com/start
+      admin: https://app.veliform.com/admin
+      personal: https://my.veliform.com
+      voice_seo: https://veliform.com/voice
     path_prefixes:
       - apps/voice-server/
       - apps/personal-server/
@@ -39,9 +49,9 @@ repos:
     product_slug: agent-company-saas
     notion_workstream_slug: agent-company
     github: josefwebdeveloper/agent-company
-    prod_url: https://agent-company-navy.vercel.app
+    prod_url: https://office.veliform.com
     deploy: vercel
-    notes: MVP v2 — Clerk auth + Neon Postgres + Vercel API + cron
+    notes: MVP v2 — Clerk auth + Neon Postgres + Vercel API + cron; domain office.veliform.com
 
 # Future products (no repo yet): see ceo/ideas.yaml + docs/ideas/
 
