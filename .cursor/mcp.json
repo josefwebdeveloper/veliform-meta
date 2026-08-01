@@ -7,6 +7,9 @@
         "TRELLO_API_KEY": "",
         "TRELLO_TOKEN": ""
       }
+    },
+    "twilio-docs": {
+      "url": "https://mcp.twilio.com/docs"
     }
   }
 }
