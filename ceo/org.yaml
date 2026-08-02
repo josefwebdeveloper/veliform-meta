@@ -140,6 +140,17 @@ agents:
     tools: [log_ceo_update, notion_ceo]
     repo: meta
 
+  - id: ceo-daily
+    name: CEO Daily
+    type: automation
+    department: ops
+    product_slug: veliform-company
+    workstream_slug: veliform-landing
+    status: beta
+    focus: Утренний CEO brief в Telegram (08:00 IL) — stale projects, приоритеты, check-in ответ
+    tools: [notion_ceo, telegram, log_ceo_update]
+    repo: veliform-landing
+
   - id: github-ci
     name: GitHub CI
     type: automation
@@ -152,6 +163,18 @@ agents:
     repo: voice-agent
 
 plans:
+  - id: q3-2026-voice-tenants
+    title: Q3 — 3 live voice tenants
+    product_slug: veliform-voice
+    status: building
+    note: Rose live; Maya + second business tenant in progress
+
+  - id: q3-2026-agent-company-beta
+    title: Q3 — Agent Company beta users
+    product_slug: agent-company-saas
+    status: building
+    note: WeOffice MVP onboarding + first external beta cohort
+
   - id: voice-phase-d
     title: Voice Phase D — second business tenant
     product_slug: veliform-voice
