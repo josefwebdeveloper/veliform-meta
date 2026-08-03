@@ -13,6 +13,8 @@ description: Numbers, dates, and roadmap as of 2026-07-28
 **Founder:** Josef Shainskiy  
 **Production:** [veliform.com](https://veliform.com) · [veliform.com/hq](https://veliform.com/hq)
 
+> **Strategy update (2026-08-03):** this deck is a historical snapshot. The current operating plan is in [`PRODUCT_AUDIT_2026-08-03_RU.md`](../PRODUCT_AUDIT_2026-08-03_RU.md): Voice-first, hospitality paid pilots, Launchpad paused until release gates, and WeOffice limited to dogfood plus one design partner.
+
 ---
 
 # Slide 1 — Company goal

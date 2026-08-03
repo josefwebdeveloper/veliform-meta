@@ -51,7 +51,7 @@ repos:
     github: josefwebdeveloper/agent-company
     prod_url: https://office.veliform.com
     deploy: vercel
-    notes: MVP v2 — Clerk auth + Neon Postgres + Vercel API + cron; domain office.veliform.com
+    notes: MVP v3.1 — Clerk + Neon + Google integration; Marketing Analyst is live, other roles are previews; keep as dogfood plus one design partner
 
 # Future products (no repo yet): see ceo/ideas.yaml + docs/ideas/
 

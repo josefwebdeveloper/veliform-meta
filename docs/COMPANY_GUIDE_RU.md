@@ -84,7 +84,7 @@
 
 **Суть:** SaaS, где **клиент открывает свою AI-компанию** — нанимает automation-агентов из каталога, смотрит dashboard. Без голоса, без нашего внутреннего HQ.
 
-**Статус:** MVP v0 локально в `agent-company/` — landing, onboarding, demo dashboard. Репозиторий ещё не в GitHub.
+**Статус:** MVP v3.1 в `agent-company/`, GitHub + production `office.veliform.com`. Clerk и Neon поддерживают cloud accounts; Marketing Analyst — единственный подключённый worker, остальные роли явно помечены preview.
 
 Мы **dogfood'им** эту модель на себе: наш `org.yaml` + HQ + SEO/Marketing агенты — прототип того, что потом продадим.
 
@@ -204,10 +204,10 @@
 
 | ID | Название | Статус | Смысл |
 |----|----------|--------|-------|
-| `voice-phase-d` | Voice Phase D — второй business tenant | building | Maya / real estate + admin UI для tenant #2 |
+| `voice-phase-d` | Voice Phase D — hospitality paid pilot | building | Повторяемый reservation/order workflow + runtime metrics |
 | `copilot-server` | Dedicated Copilot deploy | planned | Отдельный Railway для Voice Copilot |
 | `hq-v1` | Company HQ dashboard | live | veliform.com/hq |
-| `agent-company-saas-discovery` | WeOffice | building | MVP v0, будущий SaaS |
+| `agent-company-saas-discovery` | WeOffice | building | Dogfood + один design partner; live Marketing Analyst |
 
 ---
 
@@ -218,7 +218,7 @@
 ├── meta/              CEO-реестр, org.yaml, документация, bootstrap
 ├── veliform-landing/  veliform.com + HQ + SEO + Marketing Analyst
 ├── voice/             Voice Agent (monorepo: business/personal servers)
-└── agent-company/     WeOffice MVP (локально, не в GitHub)
+└── agent-company/     WeOffice MVP (GitHub + Vercel)
 ```
 
 | Repo | GitHub | Prod |
@@ -226,6 +226,7 @@
 | meta | josefwebdeveloper/veliform-meta | — |
 | veliform-landing | josefwebdeveloper/veliform-landing | veliform.com (Vercel `porqa`) |
 | voice | josefwebdeveloper/voice-agent | Railway |
+| agent-company | josefwebdeveloper/agent-company | office.veliform.com (Vercel) |
 
 ---
 

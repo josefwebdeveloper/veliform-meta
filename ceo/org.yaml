@@ -70,8 +70,19 @@ agents:
     product_slug: veliform-voice
     workstream_slug: voice-agent
     status: planned
-    focus: Real estate tenant — listings, leads, web search
+    focus: Real estate prototype — listings, leads, web search; paused behind hospitality paid pilots
     tools: [listings, leads, web_search]
+    deploy: voice-server
+
+  - id: sam
+    name: Sam
+    type: voice
+    department: product
+    product_slug: veliform-voice
+    workstream_slug: voice-agent
+    status: beta
+    focus: Hospitality design-partner agent — menu, reservations, waitlist, orders, handoff
+    tools: [menu, dining_slots, reservations, waitlist, orders, handoff]
     deploy: voice-server
 
   - id: hr-copilot
@@ -164,10 +175,10 @@ agents:
 
 plans:
   - id: q3-2026-voice-tenants
-    title: Q3 — 3 live voice tenants
+    title: Q3 — 3 paid Voice pilots
     product_slug: veliform-voice
     status: building
-    note: Rose live; Maya + second business tenant in progress
+    note: Rose remains the public florist demo; hospitality is the paid design-partner wedge; measure completed outcomes, not tenant count
 
   - id: q3-2026-agent-company-beta
     title: Q3 — Agent Company beta users
@@ -176,10 +187,10 @@ plans:
     note: WeOffice MVP onboarding + first external beta cohort
 
   - id: voice-phase-d
-    title: Voice Phase D — second business tenant
+    title: Voice Phase D — hospitality paid pilot
     product_slug: veliform-voice
     status: building
-    note: Real estate tenant (Maya), admin UI for tenant #2
+    note: Ship one repeatable restaurant/cafe workflow with call lifecycle metrics before reopening Launchpad or another vertical
 
   - id: copilot-server
     title: Dedicated Copilot deploy
@@ -197,4 +208,4 @@ plans:
     title: Agent Company SaaS — WeOffice
     product_slug: agent-company-saas
     status: building
-    note: MVP v0 in agent-company/ — landing, hire roster, local demo dashboard
+    note: Keep as dogfood + one design partner; Marketing Analyst is the only live worker, other catalog roles are explicit previews

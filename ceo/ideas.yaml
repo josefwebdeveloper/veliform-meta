@@ -8,7 +8,7 @@ ideas:
     stage: building
     tier: idea
     priority: P2
-    next_action: Migrate to Vercel + Neon + Clerk; deploy preview; port Marketing Analyst worker (v2)
+    next_action: Validate the live Marketing Analyst with one design partner; keep other catalog roles as explicit previews until each has a connected worker
     docs: docs/ideas/AGENT_COMPANY_SAAS.md
     repo_path: ../agent-company
     trello_list: backlog
