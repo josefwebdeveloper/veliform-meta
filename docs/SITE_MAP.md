@@ -1,18 +1,18 @@
 # Veliform site map — canonical URLs and DNS
 
 > Source of truth for public URLs, display names, and infrastructure mapping.  
-> Updated: 2026-07-30
+> Updated: 2026-08-07
 
 ## Structure
 
 ```
 VELIFORM (company)
-├── veliform.com              → marketing + AI Architect
-├── veliform.com/voice        → SEO product landing (Voice) — canonical marketing page
+├── veliform.com              → Veliform Voice SEO landing (primary)
+├── veliform.com/company      → company marketing + AI Architect
 └── veliform.com/hq           → internal HQ (noindex)
 
 VELIFORM VOICE (product)
-├── app.veliform.com          → redirects to veliform.com/voice (301)
+├── app.veliform.com          → redirects to veliform.com/ (301)
 │   ├── /start                → Launchpad paused page (noindex) or launchpad when enabled
 │   ├── /test                 → voice test (noindex, admin)
 │   └── /admin                → Voice Admin (noindex)
@@ -26,10 +26,10 @@ WEOFFICE (product — building)
 
 | Display name | URL | SEO | Deploy | Repo |
 |--------------|-----|-----|--------|------|
-| Veliform | https://veliform.com | index | Vercel `porqa` | veliform-landing |
-| Veliform Voice (SEO) | https://veliform.com/voice | index | Vercel `porqa` | veliform-landing |
+| Veliform Voice (SEO) | https://veliform.com/ | index | Vercel `porqa` | veliform-landing |
+| Veliform Company | https://veliform.com/company | index | Vercel `porqa` | veliform-landing |
 | Veliform HQ | https://veliform.com/hq | noindex | Vercel `porqa` | veliform-landing |
-| Veliform Voice App root | https://app.veliform.com | noindex (301 → /voice) | Railway `voice-server` | voice-agent |
+| Veliform Voice App root | https://app.veliform.com | noindex (301 → /) | Railway `voice-server` | voice-agent |
 | Launchpad / paused | https://app.veliform.com/start | noindex | Railway `voice-server` | voice-agent |
 | Voice Admin | https://app.veliform.com/admin | noindex | Railway `voice-server` | voice-agent |
 | Alice (personal) | https://my.veliform.com | noindex | Railway `personal-server` | voice-agent |
@@ -39,6 +39,7 @@ WEOFFICE (product — building)
 
 | Old URL | Replace with |
 |---------|--------------|
+| veliform.com/voice | veliform.com/ (301) |
 | voice-server-production-f958.up.railway.app | app.veliform.com |
 | personal-server-production-3d89.up.railway.app | my.veliform.com |
 | agent-company-navy.vercel.app | office.veliform.com |
@@ -79,8 +80,10 @@ PUBLIC_BASE_URL=https://my.veliform.com
 
 ## SEO rules
 
-- **Primary Voice SEO URL:** `veliform.com/voice` — marketing landing (sitemap, GSC)
-- **app.veliform.com `/`:** 301 to `veliform.com/voice`
+- **Primary Voice SEO URL:** `veliform.com/` — marketing landing (sitemap, GSC)
+- **Company site:** `veliform.com/company`
+- **Legacy:** `veliform.com/voice` → 301 to `veliform.com/`
+- **app.veliform.com `/`:** 301 to `veliform.com/`
 - **app.veliform.com `/start`:** Launchpad paused (or launchpad when `LAUNCHPAD_ENABLED=true`)
 - **Admin / Launchpad / HQ / my:** noindex
 - **WeOffice landing** on `office.veliform.com` — index; dashboard routes noindex

@@ -19,7 +19,8 @@ repos:
     prod_url: https://veliform.com
     deploy: vercel
     paths:
-      voice_seo: /voice
+      voice_seo: /
+      company: /company
       hq: /hq
 
   - slug: voice
@@ -35,7 +36,7 @@ repos:
       start: https://app.veliform.com/start
       admin: https://app.veliform.com/admin
       personal: https://my.veliform.com
-      voice_seo: https://veliform.com/voice
+      voice_seo: https://veliform.com/
     path_prefixes:
       - apps/voice-server/
       - apps/personal-server/
