@@ -1,0 +1,33 @@
+---
+description: After completing work, sync actionable tasks in Linear via MCP when connected.
+alwaysApply: true
+---
+
+# Linear sync (Veliform)
+
+Linear = **tasks** (issues on projects). Notion CEO = **activity log** (see `ceo-registry.mdc`). Both when work is non-trivial.
+
+Trello boards are **deprecated / archive** — do not create new Trello cards.
+
+## MCP
+
+- Server: official Linear MCP (`https://mcp.linear.app/mcp`) — Connect in Cursor Tools & MCP
+- Registry: [LINEAR_VELIFORM.md](../docs/LINEAR_VELIFORM.md) · `ceo/linear.yaml`
+
+## After finishing work
+
+1. **Identify project** from repo:
+   - `veliform-landing` / SEO / marketing → **Veliform Company** + label `seo`
+   - HQ / ops / finance → **Veliform Company** + label `hq`
+   - `voice` → **Veliform Voice** (+ `ops` / `personal` / `business` labels as needed)
+   - WeOffice → **Veliform Company** (or Voice if product-tied)
+2. **Update or create issue** via Linear MCP (`save_issue`):
+   - Done work → state **Done**
+   - New follow-up → **Backlog** or **In Progress**
+3. **Description:** 1–3 lines + link to commit/PR. No secrets.
+4. **Also:** CEO Update in Notion when product direction or deploy changed.
+
+## Do not
+
+- Duplicate entire `PROJECT_LOG.md` into Linear
+- Create duplicate teams — use team **Veliform** and projects in `ceo/linear.yaml`

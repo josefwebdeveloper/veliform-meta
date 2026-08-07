@@ -104,7 +104,7 @@ agents:
     workstream_slug: veliform-landing
     status: beta
     focus: GA4 + Search Console monitoring, anomaly alerts, weekly topics
-    tools: [ga4, search_console, gemini, trello, notion_ceo]
+    tools: [ga4, search_console, gemini, linear, notion_ceo]
     repo: veliform-landing
 
   - id: finance-analyst
@@ -115,7 +115,7 @@ agents:
     workstream_slug: veliform-landing
     status: beta
     focus: Railway spend pulse every 2h, weekly finance snapshot, anomaly alerts
-    tools: [railway_usage, trello, notion_ceo, telegram]
+    tools: [railway_usage, linear, notion_ceo, telegram]
     repo: veliform-landing
 
   - id: ai-architect

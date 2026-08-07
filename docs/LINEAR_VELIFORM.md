@@ -1,10 +1,8 @@
-# Linear — Veliform (replacing Trello)
+# Linear — Veliform (primary task tracker)
 
-> **Primary task tracker** (migrating from Trello 2026-08-08). Trello docs kept until cutover: [`TRELLO_VELIFORM.md`](TRELLO_VELIFORM.md).
+> Cutover from Trello **2026-08-08**. Archive docs: [`TRELLO_VELIFORM.md`](TRELLO_VELIFORM.md).
 
-## Why
-
-Same three-layer ops, better agent UX in Cursor:
+## Three-layer ops
 
 | Layer | System |
 |-------|--------|
@@ -12,54 +10,63 @@ Same three-layer ops, better agent UX in Cursor:
 | Product registry + activity | Notion CEO |
 | Dashboard | HQ (`veliform.com/hq`) |
 
+## Workspace
+
+- URL: https://linear.app/veliform
+- Team: **Veliform** (`VEL`)
+- Registry: [`ceo/linear.yaml`](../ceo/linear.yaml)
+
+### Projects
+
+| Project | Was Trello board |
+|---------|------------------|
+| [Veliform Voice](https://linear.app/veliform/project/veliform-voice-30fb67766210) | Veliform Voice |
+| [Veliform Company](https://linear.app/veliform/project/veliform-company-e14fd4faeace) | Veliform Company |
+
+### Labels (ex-lists)
+
+| Label | Was Trello list |
+|-------|-----------------|
+| `ops` | 🔧 Ops & Integrations |
+| `personal` | 👤 Personal Line |
+| `business` | 🏢 Business Platform |
+| `seo` | 🌐 SEO & Marketing |
+| `hq` | 🏗 Company HQ |
+
+Statuses: **Backlog** · **Todo** · **In Progress** · **Done**
+
 ## Cursor MCP
 
-Official remote MCP (preferred over Zapier/GitLens for this workspace):
+Official remote MCP (already in `~/.cursor/mcp.json`):
 
 ```json
 "Linear": { "url": "https://mcp.linear.app/mcp" }
 ```
 
-1. Settings → Cursor Settings → **Tools & MCP** → connect **Linear** (OAuth).
-2. Or open: [Linear MCP install](https://linear.app/docs/mcp).
-3. Reload Window. Agent should see Linear tools (list teams, create issue, etc.).
+Settings → Tools & MCP → **Linear** → Connect (OAuth) → Reload if needed.
 
-Zapier Linear actions are also enabled but require a separate Zapier↔Linear auth if used as fallback.
+Agent workflow rule: `meta/.cursor/rules/linear-sync.mdc`.
 
-## Target structure (mirror of Trello)
+## Automation (GitHub Actions)
 
-### Team: **Veliform Voice**
+Marketing / Finance agents prefer Linear when `LINEAR_API_KEY` is set on `veliform-landing`; otherwise they fall back to Trello list IDs.
 
-| Linear status / label | Was Trello list |
-|----------------------|-----------------|
-| Backlog | 📋 Backlog |
-| In Progress | 🚧 In Progress |
-| Done | ✅ Done |
-| Label `ops` | 🔧 Ops & Integrations |
-| Label `business` | 🏢 Business Platform |
-| Label `personal` | 👤 Personal Line |
+```bash
+# Create key: https://linear.app/veliform/settings/account/security
+gh secret set LINEAR_API_KEY --repo josefwebdeveloper/veliform-landing
+# Optional overrides (defaults live in config/*-agent.json):
+gh secret set LINEAR_TEAM_ID --repo josefwebdeveloper/veliform-landing
+gh secret set LINEAR_PROJECT_ID --repo josefwebdeveloper/veliform-landing
+gh secret set LINEAR_LABEL_IDS --repo josefwebdeveloper/veliform-landing
+```
 
-### Team: **Veliform Company** (or Projects under one team)
+Tracking issue: [VEL-38](https://linear.app/veliform/issue/VEL-38/wire-marketingfinance-github-actions-linear-api)
 
-| Project / label | Was Trello list |
-|-----------------|-----------------|
-| SEO & Marketing | 🌐 SEO & Marketing |
-| Company HQ | 🏗 Company HQ |
-| Backlog | 📋 Backlog |
+## Migration status
 
-Automation agents (Marketing / Finance) will post Linear issues instead of Trello cards once `LINEAR_*` secrets replace `TRELLO_*`.
-
-## Migration checklist
-
-- [ ] Linear MCP authenticated in Cursor
-- [ ] Create teams / projects / labels above
-- [ ] Import open Trello cards (skip pure Done archive or mark Done)
-- [ ] Registry: `meta/ceo/linear.yaml`
-- [ ] Update `AGENTS.md` three-layer ops → Linear
-- [ ] Update `TASK_SYNC.md`, Cursor rules (`trello-sync` → `linear-sync`)
-- [ ] Marketing / Finance GitHub Actions → Linear API
-- [ ] Deprecate Trello MCP usage (keep boards read-only archive)
-
-## Open cards inventory (source)
-
-See Trello boards at cutover; Voice board had ~27 cards (Backlog / In Progress / Ops / Personal / Done). Company board: SEO + HQ + Backlog lists.
+- [x] Linear MCP authenticated
+- [x] Projects + labels created
+- [x] Open Trello cards imported (Voice + Company); Done history preserved
+- [x] Registry `ceo/linear.yaml` + docs / Cursor rules
+- [x] Agent configs + Linear client (API key secret still required for scheduled runs)
+- [ ] Archive Trello boards as read-only when comfortable

@@ -1,0 +1,46 @@
+# Linear — primary task tracker (cutover from Trello 2026-08-08)
+# Workspace: https://linear.app/veliform
+# Docs: meta/docs/LINEAR_VELIFORM.md
+
+workspace:
+  url: https://linear.app/veliform
+  team:
+    name: Veliform
+    id: 79a64f56-7d67-420d-a4fb-523bd489c100
+    key: VEL
+
+projects:
+  voice:
+    name: Veliform Voice
+    id: d4f95bac-b91f-4c6c-94ab-a4cf7f5bc70f
+    url: https://linear.app/veliform/project/veliform-voice-30fb67766210
+  company:
+    name: Veliform Company
+    id: 42b11b96-e491-4a2e-b827-2fe6f74469d7
+    url: https://linear.app/veliform/project/veliform-company-e14fd4faeace
+
+labels:
+  ops: ops
+  personal: personal
+  business: business
+  seo: seo
+  hq: hq
+
+# Map former Trello lists → Linear
+status_map:
+  backlog: Backlog
+  todo: Todo
+  in_progress: In Progress
+  done: Done
+
+automation:
+  marketing_analyst:
+    project: company
+    label: seo
+    max_weekly_tasks: 3
+  finance_agent:
+    project: company
+    label: hq
+    max_pulse_tasks: 1
+
+# Deprecated boards (archive / read-only): meta/ceo/trello.yaml

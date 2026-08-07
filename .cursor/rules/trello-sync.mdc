@@ -1,11 +1,13 @@
 ---
-description: After completing work, sync actionable tasks in Trello via MCP when connected.
-alwaysApply: true
+description: DEPRECATED — use linear-sync.mdc. Trello boards are archive-only.
+alwaysApply: false
 ---
 
-# Trello sync (Veliform)
+# Trello sync (DEPRECATED)
 
-Trello = **tasks** (cards on lists). Notion CEO = **activity log** (see `ceo-registry.mdc`). Both when work is non-trivial.
+**Use [`linear-sync.mdc`](linear-sync.mdc) instead.** Trello boards are archive-only as of 2026-08-08.
+
+Trello was tasks (cards on lists). Notion CEO = **activity log** (see `ceo-registry.mdc`).
 
 ## MCP
 

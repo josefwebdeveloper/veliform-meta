@@ -1,3 +1,5 @@
+# DEPRECATED 2026-08-08 — primary tracker is Linear (see ceo/linear.yaml).
+# Keep for archive / agent fallback when LINEAR_API_KEY unset.
 boards:
   company:
     name: Veliform Company

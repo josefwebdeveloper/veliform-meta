@@ -1,6 +1,8 @@
-# Trello — Veliform Company (landing, SEO, HQ)
+# Trello — Veliform (DEPRECATED archive)
 
-> **Primary task tracker** (migrated from ClickUp 2026-07-29). Voice board — [`voice/docs/TRELLO_PROJECT.md`](../../voice/docs/TRELLO_PROJECT.md).
+> **Deprecated 2026-08-08.** Primary task tracker is **Linear** — see [`LINEAR_VELIFORM.md`](LINEAR_VELIFORM.md) and `ceo/linear.yaml`. Boards below are read-only archive.
+
+Voice board notes — [`voice/docs/TRELLO_PROJECT.md`](../../voice/docs/TRELLO_PROJECT.md).
 
 ## Setup (one time)
 
